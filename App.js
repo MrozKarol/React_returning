@@ -1,15 +1,4 @@
-class App extends React.Component {
-  state = {
-    counter: 0
-  }
-  render() {
-    return (
-      <div>
-        <h1>Hello!</h1>
-      </div>
-    );
-  }
-}
+// console.log(React);
+// console.log(React);
 
 
-ReactDOM.render(<App />, document.getElementById('root'))
