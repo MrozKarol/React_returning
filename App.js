@@ -11,5 +11,18 @@ const App = () => {
 
 //komponenet klasowy, stanowy
 
+class App2 extends React.Component {
+  state = {
+    number: 0,
+  }
+  render() {
+    return (
+      <section>
+        <h2>KOmponent klaswoy {this.state.number}</h2>
+      </section>
+    )
+  }
+}
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+
+ReactDOM.render(<App2/>, document.getElementById('root'))
