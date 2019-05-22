@@ -14,10 +14,10 @@ const main = (
   </div>
 )
 
-
+const textExample ="Lorem Lorem Lorem Lorem Lorem Lorem"
 const footer = (
   <footer>
-    <p className={classBig} >Stipka</p>
+    <p className={classBig} >Stipka {textExample}</p> 
   </footer>
 )
 
