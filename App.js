@@ -1,6 +1,6 @@
 //komponent funkcyjny, bezstanowy
 
-const App = () => {
+const Header = () => {
   return (
     <h1>Pierwszy komponenet</h1> 
   )
@@ -11,18 +11,28 @@ const App = () => {
 
 //komponenet klasowy, stanowy
 
-class App2 extends React.Component {
+class Blog extends React.Component {
   state = {
     number: 0,
   }
   render() {
     return (
       <section>
-        <h2>KOmponent klaswoy {this.state.number}</h2>
+        <h2>Blog numet:  {this.state.number}</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis veniam eligendi dicta explicabo, minima reprehenderit provident atque aspernatur.</p>
       </section>
     )
   }
 }
 
+const App = () =>{
+  return(
+    <div>
+      <Header/>
+      <Blog/>
+    </div>
+  )
+}
 
-ReactDOM.render(<App2/>, document.getElementById('root'))
+
+ReactDOM.render(<App/>, document.getElementById('root'))
