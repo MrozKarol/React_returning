@@ -1,4 +1,8 @@
-//Przycisk po kliknieciu dodawana jest ltera do tekstu
+//Przycisk po kliknieciu dodawana jest ltera do tekstu "cyfra"
+//Nowy komponent
+//losowanie liczby
+//wyswietlanie nazwy przycisku z obiektu props, ze zmiennej bezposrednio lub z obiektu statw
+
 
 class App extends React.Component{
 
@@ -7,24 +11,31 @@ class App extends React.Component{
   }
 
   handleClick = () => {
-    //this.state.text += 'a';
-    //console.log(this.state.text)
-    const letter = 'a'
+    
+    const number = Math.floor(Math.random() * 10)
     this.setState({
-      text: this.state.text + letter
+      text: this.state.text + number
     })
   }
 
   render(){
+    const btnName = "stwórz liczbe"
     return(
       <>
-      <button onClick={this.handleClick} >Dodaj "A"</button>
-      <h1>{this.state.text}</h1>
+      <button onClick={this.handleClick} >{btnName}</button>
+      <PanelResult text={this.state.text}/>
       </>
     )
   }
 }
 
+const PanelResult = (props) => {
+  return(
+    <h1>{props.text}</h1>
+  )
+}
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+
+
+ReactDOM.render(<App btnTitle='dodaj cyfre'/>, document.getElementById('root'))
 
