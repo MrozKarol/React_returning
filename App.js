@@ -1,38 +1,27 @@
-//komponent funkcyjny, bezstanowy
+class ShoopingList extends React.Component {
 
-const Header = () => {
-  return (
-    <h1>Pierwszy komponenet</h1> 
-  )
-}
-
-
-
-
-//komponenet klasowy, stanowy
-
-class Blog extends React.Component {
   state = {
-    number: 0,
+    items1: 'pomidory',
+    items2: 'sok',
+    items3: 'kawka'
   }
+
+
   render() {
     return (
-      <section>
-        <h2>Blog numet:  {this.state.number}</h2>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero veritatis veniam eligendi dicta explicabo, minima reprehenderit provident atque aspernatur.</p>
-      </section>
+      <div>
+        <h1>Lista zakupow</h1>
+        <ul>
+          <li>{this.state.items1}</li>
+          <li>{this.state.items2}</li>
+          <li>{this.state.items3}</li>
+        </ul>
+
+      </div>
     )
   }
+
+
 }
 
-const App = () =>{
-  return(
-    <div>
-      <Header/>
-      <Blog/>
-    </div>
-  )
-}
-
-
-ReactDOM.render(<App/>, document.getElementById('root'))
+ReactDOM.render(<ShoopingList />, document.getElementById('root'))
