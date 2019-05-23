@@ -12,16 +12,21 @@ class ShoopingList extends React.Component {
       <div>
         <h1>Lista zakupow</h1>
         <ul>
-          <li>{this.state.items1}</li>
-          <li>{this.state.items2}</li>
-          <li>{this.state.items3}</li>
+          <ItemList name = {this.state.items1} example= {2+2} />
+          <ItemList name = {this.state.items2} />
+          <ItemList name = {this.state.items3} />
+     
         </ul>
 
       </div>
     )
   }
+}
 
-
+const ItemList = (props) => {
+  return(
+    <li>{props.name},- {props.example}</li>
+  )
 }
 
 ReactDOM.render(<ShoopingList />, document.getElementById('root'))
