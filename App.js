@@ -2,15 +2,19 @@
 
 class Message extends React.Component {
 
-   constructor(props){
-       super(props);
-       this.state = {
-           messageIsActive: false
-       }
-       this.handleMessageButton = this.handleMessageButton.bind(this)
-   }
+//    constructor(props){
+//        super(props);
+//        this.state = {
+//            messageIsActive: false
+//        }
+//        this.handleMessageButton = this.handleMessageButton.bind(this)
+//    }
 
-   handleMessageButton() {
+     state = {
+        messageIsActive: false
+     }
+
+   handleMessageButton =() => {
        
        this.setState({
            messageIsActive: !this.state.messageIsActive
@@ -24,7 +28,8 @@ class Message extends React.Component {
             <button onClick={this.handleMessageButton} >
             {this.state.messageIsActive ? 'Ukryj' : 'Pokaż'}
             </button>
-            <p>{this.state.messageIsActive ? text: !text}</p>
+            {/* <p>{this.state.messageIsActive && text}</p> */}
+            {this.state.messageIsActive ? <p>{text}</p> : null}
             </>
         )
     }
