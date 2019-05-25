@@ -1,7 +1,16 @@
-.red{
-    color:red
+body {
+    text-align: center;
+    overflow: hidden;
 }
 
-.big{
-    font-size: 40px
+.title{
+    font-family: Arial, Helvetica, sans-serif;
+    pad: 30px;
+    font-size: 50px;
+}
+
+input[type="text"], button{
+    padding: 10px, 30px;
+    border: red 2px solid;
+    outline: none
 }
