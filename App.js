@@ -4,12 +4,19 @@ class App extends React.Component {
 
   state = {}
 
+  handleInputChange(e){
+    console.log(e.target.value);
+  }
+
+
+
+
   render() {
     return (
       <>
-      <input type="text" />
+      <input onChange={this.handleInputChange} type="text" />
       <button>Reset</button>
-      <h1></h1>
+      <h1 className="title"></h1>
       </>
     )
 
