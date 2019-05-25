@@ -2,21 +2,30 @@
 
 class App extends React.Component {
 
-  state = {}
-
-  handleInputChange(e){
-    console.log(e.target.value);
+  state = {
+    value : ""
   }
 
+  handleInputChange = (e) => {
 
+    
+    console.log(e.target.value);
+    this.setState({value: e.target.value})
+    
+  }
 
+  handleRestClick = () =>{
+    return(
+      this.setState({value: ""})
+    )
+  }
 
   render() {
     return (
       <>
-      <input onChange={this.handleInputChange} type="text" />
-      <button>Reset</button>
-      <h1 className="title"></h1>
+      <input value={this.state.value} placeholder="wpisz coś..." onChange={this.handleInputChange} type="text" />
+      <button onClick={this.handleRestClick}>Reset</button>
+      <h1 className="title">{this.state.value.toLocaleUpperCase()}</h1>
       </>
     )
 
