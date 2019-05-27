@@ -37,10 +37,22 @@ class Counter extends React.Component {
     render(){
         return(
             <React.Fragment  >
-                <MathButton name="-1"
+                <MathButton 
+                 name="-1"
                  number="1"
                  type="minus" 
                  click={this.handleMathClick } />
+                 <MathButton 
+                 name="Reset"
+                 type="reset" 
+                 click={this.handleMathClick } />
+                 <MathButton 
+                 name="+1"
+                 number="1"
+                 type="plus" 
+                 click={this.handleMathClick } />
+                 
+                 
                 <p >Liczba kliknięć:{this.state.count}</p>
                 <p>Wynik:{this.state.result }</p>
             </React.Fragment>
@@ -49,9 +61,9 @@ class Counter extends React.Component {
 }
 
 const MathButton = (props) => {
-    
+    const number = parseInt(props.number)
     return(
- <button onClick={() => props.click(props.type, props.number)} >{props.name}</button>
+ <button onClick={() => props.click(props.type, number)} >{props.name}</button>
  )
 }
 
