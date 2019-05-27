@@ -9,7 +9,7 @@ class Counter extends React.Component {
 
     }
 
-   handleMathClick(type,number){
+   handleMathClick = (type,number) => {
        if(type === 'minus'){
            this.setState(prevState =>(
                {
@@ -36,14 +36,23 @@ class Counter extends React.Component {
 
     render(){
         return(
-            <React.Fragment>
-                <button onClick={this.handleMathClick.bind(this, 'minus', 1)} >-1</button>
-                <button onClick={this.handleMathClick.bind(this, 'reset', 0)} >reset wyniku</button>
-                <button onClick={this.handleMathClick.bind(this, 'plus', 1)} >+1</button>
+            <React.Fragment  >
+                <MathButton name="-1"
+                 number="1"
+                 type="minus" 
+                 click={this.handleMathClick } />
                 <p >Liczba kliknięć:{this.state.count}</p>
                 <p>Wynik:{this.state.result }</p>
             </React.Fragment>
         )
     }
 }
+
+const MathButton = (props) => {
+    
+    return(
+ <button onClick={() => props.click(props.type, props.number)} >{props.name}</button>
+ )
+}
+
 ReactDOM.render(<Counter />, document.getElementById('root'))
