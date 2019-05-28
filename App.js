@@ -67,9 +67,10 @@ const MathButton = (props) => {
 
 
 const ResultPanel = (props) => {
+
     return(
         <>
-        <p >Liczba kliknięć:{props.count}</p>
+        <p >Liczba kliknięć:{props.count} {props.count>10 ? <span>Przeciążenie procesora</span> : null }</p>
         <p>Wynik:{props.result }</p>
         </>
     )
