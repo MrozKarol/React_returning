@@ -4,6 +4,17 @@ const ValidationMessage = (props) => {
         <p>{txt}</p>
     )
 } 
+
+const dispalyMesage = (isConfirmed, isFormSubmitted) => {
+    if (isFormSubmitted) {
+        if (isConfirmed) {
+            return <ValidationMessage txt='Możesz obejrzeć film zaoraszamy' />
+        } else {
+            
+            return <ValidationMessage txt='Nie mozesz obejrześć filmu jeśli masz mniej niz 16 lat' />
+        }
+    }else{return null}
+}
 class TicketShop extends React.Component {
 
     state = {
@@ -16,16 +27,7 @@ class TicketShop extends React.Component {
             isFormSubmitted: false
         })
     }
-    dispalyMesage = () => {
-        if (this.state.isFormSubmitted) {
-            if (this.state.isConfirmed) {
-                return <ValidationMessage txt='Możesz obejrzeć film zaoraszamy' />
-            } else {
-                !this.state.isConfirmed
-                return <ValidationMessage txt='Nie mozesz obejrześć filmu jeśli masz mniej niz 16 lat' />
-            }
-        }else{return null}
-    }
+    
 
     handleSubmit = (e) =>
     {
@@ -38,7 +40,7 @@ class TicketShop extends React.Component {
         }
     }
     render() {
-        const {isConfirmed} = this.state
+        const {isConfirmed, isFormSubmitted} = this.state
         return (
             <>
                 <h1>Kup mi bilet na DeadPool</h1>
@@ -50,7 +52,7 @@ class TicketShop extends React.Component {
                     <label htmlFor="age">Mam co najmniej 16 lat</label>
                     <br />
                     <button>Kup bilet</button>
-                    {this.dispalyMesage()}
+                    {dispalyMesage(isConfirmed, isFormSubmitted)}
                 </form>
             </>
         )
