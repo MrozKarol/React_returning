@@ -1,4 +1,9 @@
-const ValidationMessage = (props) => <p>{props.txt}</p>
+const ValidationMessage = (props) => {
+    const {txt} = props
+    return (
+        <p>{txt}</p>
+    )
+} 
 class TicketShop extends React.Component {
 
     state = {
@@ -33,7 +38,7 @@ class TicketShop extends React.Component {
         }
     }
     render() {
-        // console.log(this.state.isConfirmed)
+        const {isConfirmed} = this.state
         return (
             <>
                 <h1>Kup mi bilet na DeadPool</h1>
@@ -41,7 +46,7 @@ class TicketShop extends React.Component {
                     <input type="checkbox"
                         id="age"
                         onChange={this.handleCheckboxChange}
-                        checked={this.state.isConfirmed} />
+                        checked={isConfirmed} />
                     <label htmlFor="age">Mam co najmniej 16 lat</label>
                     <br />
                     <button>Kup bilet</button>
