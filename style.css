@@ -14,3 +14,9 @@ input[type="text"], button{
     border: red 2px solid;
     outline: none
 }
+button{
+    cursor: pointer;
+}
+button:disabled{
+    opacity: 0.3;
+}
