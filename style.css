@@ -1,5 +1,5 @@
 body {
-    text-align: center;
+   
     overflow: hidden;
 }
 
@@ -15,7 +15,13 @@ input[type="text"], button{
     outline: none
 }
 button{
+    margin: 0 4px 0 4px;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+   
     cursor: pointer;
+    
 }
 button:disabled{
     opacity: 0.3;
