@@ -3,19 +3,19 @@
 // destrukteryzacja
 
 class App extends React.Component {
-    
-    
+
+
     state = {
         availableProducts: 7,
         shoppingCard: 0
     }
 
-    handleRamoveFromCard = () =>(
-        this.setState({shoppingCard: this.state.shoppingCard -1})
-    
+    handleRamoveFromCard = () => (
+        this.setState({ shoppingCard: this.state.shoppingCard - 1 })
+
     )
-    handleAddToCard = () =>{
-        this.setState({shoppingCard: this.state.shoppingCard +1})
+    handleAddToCard = () => {
+        this.setState({ shoppingCard: this.state.shoppingCard + 1 })
     }
 
     handleBuy = () => {
@@ -25,16 +25,16 @@ class App extends React.Component {
         })
     }
 
-    render (){
+    render() {
         return (
             <>
-            <button disabled={this.state.shoppingCard ? false : true} onClick={this.handleRamoveFromCard} >-1 </button>
-            <span> {this.state.shoppingCard} </span>
-            <button disabled={this.state.shoppingCard === this.state.availableProducts ? true : false} onClick={this.handleAddToCard}>+1</button>
-            {this.state.shoppingCard > 0 && <button onClick={this.handleBuy}>Kup</button>}
+                <button disabled={this.state.shoppingCard ? false : true} onClick={this.handleRamoveFromCard} >-1 </button>
+                <span style={this.state.shoppingCard === 0 ? {opacity : 0.3 } : {opacity: 1}}> {this.state.shoppingCard} </span>
+                <button disabled={this.state.shoppingCard === this.state.availableProducts ? true : false} onClick={this.handleAddToCard}>+1</button>
+                {this.state.shoppingCard > 0 && <button onClick={this.handleBuy}>Kup</button>}
             </>
         )
     }
 }
 
-ReactDOM.render(<App/>, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
