@@ -26,10 +26,11 @@ class App extends React.Component {
     }
 
     render() {
+       const grayStyle = this.state.shoppingCard === 0 ? {opacity : 0.3 } : {opacity: 1}
         return (
             <>
                 <button disabled={this.state.shoppingCard ? false : true} onClick={this.handleRamoveFromCard} >-1 </button>
-                <span style={this.state.shoppingCard === 0 ? {opacity : 0.3 } : {opacity: 1}}> {this.state.shoppingCard} </span>
+                <span style={grayStyle}> {this.state.shoppingCard} </span>
                 <button disabled={this.state.shoppingCard === this.state.availableProducts ? true : false} onClick={this.handleAddToCard}>+1</button>
                 {this.state.shoppingCard > 0 && <button onClick={this.handleBuy}>Kup</button>}
             </>
