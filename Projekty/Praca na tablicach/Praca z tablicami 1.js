@@ -5,7 +5,7 @@ class ListItem extends React.Component {
    render(){
        return(
            <ul>
-              {this.state.items.map((item)=> <li key={item}>{item}</li>)}
+              {this.state.items.map((item)=> <li key={item}> {`owoc ${item}`}</li>)}
            </ul> 
        )
    }
