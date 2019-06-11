@@ -18,7 +18,12 @@ const data ={
 
     ]
 }
-const Item = (props) => <li>{`owoc ${props.content}`}</li>
+const Item = (props) => (
+    <div>
+        <p>Użytkownik {props.user.name}</p>
+        <p>Ma {props.user.age} lat</p>
+    </div>
+)
 
 class ListItem extends React.Component {
     // state ={
@@ -26,7 +31,8 @@ class ListItem extends React.Component {
     // }
    render(){
 
-    const Items = this.state.items.map(item => <Item key={item} content={item} />)
+    const users = this.props.data.users 
+    const Items = users.map(user => <Item key={user.id} user={user} />)
 
        return(
            <ul>
