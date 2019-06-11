@@ -1,3 +1,5 @@
+const Item = (props) => <li>{`owoc ${props.content}`}</li>
+
 class ListItem extends React.Component {
     state ={
         items: ["jabłko", "śliwka", "gruszka"]
@@ -5,7 +7,7 @@ class ListItem extends React.Component {
    render(){
        return(
            <ul>
-              {this.state.items.map((item)=> <li key={item}> {`owoc ${item}`}</li>)}
+              {this.state.items.map(item => <Item content={item} />)}
            </ul> 
        )
    }
