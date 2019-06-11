@@ -18,10 +18,10 @@ const data ={
 
     ]
 }
-const Item = (props) => (
+const Item = ({user}) => (
     <div>
-        <p>Użytkownik {props.user.name}</p>
-        <p>Ma {props.user.age} lat</p>
+        <p>Użytkownik {user.name}</p>
+        <p>Ma {user.age} lat</p>
     </div>
 )
 
