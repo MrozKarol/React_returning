@@ -5,9 +5,12 @@ class ListItem extends React.Component {
         items: ["jabłko", "śliwka", "gruszka"]
     }
    render(){
+
+    const Items = this.state.items.map(item => <Item key={item} content={item} />)
+
        return(
            <ul>
-              {this.state.items.map(item => <Item content={item} />)}
+              {Items}
            </ul> 
        )
    }
