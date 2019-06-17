@@ -7,12 +7,18 @@ class App extends React.Component {
             {id: 4, name:'zupa pomidorowa', active:false},
             {id: 5, name:'wrzatek', active:false},
             {id: 6, name:'chleb', active:true},  
-        ],
+        ]
      }
+
     render() { 
-        return ( 
-            <div>Menu</div>
-         );
-    }
+        return (
+            
+            <React.Fragment>
+                <Header items={this.state.items}/>
+                <ListItems/>
+            </React.Fragment>
+      
+        );
+}
 }
  
