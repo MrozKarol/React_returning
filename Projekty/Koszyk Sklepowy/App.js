@@ -11,11 +11,12 @@ class App extends React.Component {
      }
 
     render() { 
+       
         return (
             
             <React.Fragment>
                 <Header items={this.state.items}/>
-                <ListItems/>
+                <ListItems items={this.state.items}/>
             </React.Fragment>
       
         );
