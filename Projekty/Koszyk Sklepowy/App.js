@@ -9,6 +9,10 @@ class App extends React.Component {
             {id: 6, name:'chleb', active:true},  
         ]
      }
+     
+     handleChangeStatus = ()=> {
+         console.log('działa')
+     }
 
     render() { 
        
@@ -16,7 +20,7 @@ class App extends React.Component {
             
             <React.Fragment>
                 <Header items={this.state.items}/>
-                <ListItems items={this.state.items}/>
+                <ListItems items={this.state.items} changeStatus={this.handleChangeStatus}/>
             </React.Fragment>
       
         );

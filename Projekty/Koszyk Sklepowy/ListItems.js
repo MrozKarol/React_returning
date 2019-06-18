@@ -3,7 +3,8 @@ const ListItems = (props) => {
         <Item
         key={item.id} 
         name={item.name} 
-        active={item.active}/>
+        active={item.active}
+        changeStatus={props.changeStatus}/>
     ))
 
     console.log(items)
