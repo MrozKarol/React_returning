@@ -1,57 +1,69 @@
 class Form extends React.Component {
 
-    state ={
-        city:"Gdańsk",
-        text:"",
+    state = {
+        city: "Gdańsk",
+        text: "",
         isLoved: true,
         number: "0"
 
     }
 
-    handleCityChange = (e) =>{
-        this.setState({
-            city: e.target.value
-        })
+    // handleCityChange = (e) =>{
+    //     this.setState({
+    //         city: e.target.value
+    //     })
+    // }
+
+    // handleTextChange = (e) =>{
+    //     this.setState({
+    //         text: e.target.value
+    //     })
+    // }
+
+    // handleIsLovedChange = (e) => {
+    //     this.setState({
+    //         isLoved: e.target.checked
+    //     })
+    // }
+
+    // handleVisitsNumberChange = (e) =>{
+    //     this.setState({
+    //         number: e.target.value
+    //     })
+    // }
+    handleChange = (e) => {
+        console.log(e.target.type)
+        if (e.target.type === "checkbox") {
+            this.setState({
+                [e.target.name]: e.target.checked
+            })
+        } else {
+            this.setState({
+                [e.target.name]: e.target.value
+            })
+        }
     }
 
-    handleTextChange = (e) =>{
-        this.setState({
-            text: e.target.value
-        })
-    }
 
-    handleIsLovedChange = (e) => {
-        this.setState({
-            isLoved: e.target.checked
-        })
-    }
-
-    handleVisitsNumberChange = (e) =>{
-        this.setState({
-            number: e.target.value
-        })
-    }
-
-
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <label>
                     Podaj misato:
-                    <input value={this.state.city} onChange={this.handleCityChange} type="text"/>
+                    <input name="city" value={this.state.city} onChange={this.handleChange} type="text" />
                 </label>
-                <br/>
+                <br />
                 <label>Napisz coś o tym mieście
-                    <textarea value={this.state.text} onChange={this.handleTextChange} ></textarea>
+                    <textarea name="text" value={this.state.text} onChange={this.handleChange} ></textarea>
                 </label>
-                <br/>
+                <br />
                 <label>Czy lubisz to miasto
-                <input type="checkbox" checked={this.state.isLoved} onChange={this.handleIsLovedChange} />
+                <input name="isLoved" type="checkbox" checked={this.state.isLoved} onChange={this.handleChange} />
                 </label>
-                <br/>
+                <br />
                 <label>
                     Ile razy byliście w tym mieście
-                    <select value={this.state.number} onChange={this.handleVisitsNumberChange} >
+                    <select name="number" value={this.state.number} onChange={this.handleChange} >
                         <option value="0">0</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -61,6 +73,6 @@ class Form extends React.Component {
                 </label>
             </div>
         )
+    }
 }
-}
-ReactDOM.render(<Form /> , document.getElementById('root'))
+ReactDOM.render(<Form />, document.getElementById('root'))
