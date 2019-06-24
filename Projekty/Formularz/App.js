@@ -3,6 +3,7 @@ class Form extends React.Component {
     state ={
         city:"Gdańsk",
         text:"",
+        isLoved: true
 
     }
 
@@ -18,6 +19,12 @@ class Form extends React.Component {
         })
     }
 
+    handleIsLovedChange = (e) => {
+        this.setState({
+            isLoved: e.target.checked
+        })
+    }
+
 
     render(){
         return(
@@ -29,6 +36,10 @@ class Form extends React.Component {
                 <br/>
                 <label>Napisz coś o tym mieście
                     <textarea value={this.state.text} onChange={this.handleTextChange} ></textarea>
+                </label>
+                <br/>
+                <label>Czy lubisz to miasto
+                <input type="checkbox" checked={this.state.isLoved} onChange={this.handleIsLovedChange} />
                 </label>
             </div>
         )
