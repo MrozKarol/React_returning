@@ -5,8 +5,12 @@ class Form extends React.Component {
 
     }
 
+    handleCityChange = (e) =>{
+        this.setState({
+            city: e.target.value
+        })
+    }
 
-    
 
     render(){
         return(
