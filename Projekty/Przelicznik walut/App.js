@@ -1,16 +1,16 @@
-const Dollars = () =>(
-    <div>Wartość w dolarach:</div>
+const Dollars = (props) =>(
+    <div>Wartość w dolarach:{props.cash / props.ratio}</div>
 )
 
-const Euros = () => (
-    <div>Wartość w euro:</div>
+const Euros = (props) => (
+    <div>Wartość w euro:{props.cash / props.ratio}</div>
 )
 
 class ExchangeCounter extends React.Component {
     state = { 
         amount: "",
         ratioDollar: 3.6,
-        rarioEuro: 4.2
+        ratioEuro: 4.2
      }
 
     handleChange = (e) =>{
@@ -19,14 +19,14 @@ class ExchangeCounter extends React.Component {
         })
     } 
     render() { 
-        const {amount, rarioEuro, ratioDollar} = this.state
+        const {amount, ratioEuro, ratioDollar} = this.state
         return ( 
             <div className="app">
                 <label >Wpisz kwotę:
                     <input type="number" value={this.state.amount} onChange={this.handleChange}/>
                 </label>
                 <Dollars cash={amount} ratio ={ratioDollar}/>
-                <Euros cash={amount} ratio ={rarioEuro}/>
+                <Euros cash={amount} ratio ={ratioEuro}/>
             </div>
          )
     }
