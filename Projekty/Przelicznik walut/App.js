@@ -2,7 +2,13 @@ class ExchangeCounter extends React.Component {
     state = {  }
     render() { 
         return ( 
-            <div>Kalkulator</div>
+            <div className="app">
+                <label >
+                    <input type="number"/>
+                </label>
+                <Dollars/>
+                <Euros/>
+            </div>
          )
     }
 }
