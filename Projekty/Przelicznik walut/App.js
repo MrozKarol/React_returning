@@ -1,9 +1,9 @@
 const Dollars = (props) =>(
-    <div>Wartość w dolarach:{props.cash / props.ratio}</div>
+    <div>Wartość w dolarach:{(props.cash / props.ratio).toFixed(2)}</div>
 )
 
 const Euros = (props) => (
-    <div>Wartość w euro:{props.cash / props.ratio}</div>
+    <div>Wartość w euro:{(props.cash / props.ratio).toFixed(2)}</div>
 )
 
 class ExchangeCounter extends React.Component {
