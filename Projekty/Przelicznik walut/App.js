@@ -8,7 +8,9 @@ const Euros = () => (
 
 class ExchangeCounter extends React.Component {
     state = { 
-        amount: ""
+        amount: "",
+        ratioDollar: 3.6,
+        rarioEuro: 4.2
      }
 
     handleChange = (e) =>{
@@ -17,13 +19,14 @@ class ExchangeCounter extends React.Component {
         })
     } 
     render() { 
+        const {amount, rarioEuro, ratioDollar} = this.state
         return ( 
             <div className="app">
                 <label >Wpisz kwotę:
                     <input type="number" value={this.state.amount} onChange={this.handleChange}/>
                 </label>
-                <Dollars/>
-                <Euros/>
+                <Dollars cash={amount} ratio ={ratioDollar}/>
+                <Euros cash={amount} ratio ={rarioEuro}/>
             </div>
          )
     }
