@@ -1,3 +1,11 @@
+const Dollars = () =>(
+    <div>Wartość w dolarach:</div>
+)
+
+const Euros = () => (
+    <div>Wartość w euro:</div>
+)
+
 class ExchangeCounter extends React.Component {
     state = {  }
     render() { 
