@@ -9,9 +9,8 @@ const Cash = props => (
 
 class ExchangeCounter extends React.Component {
   state = {
-    amount: ""
-    // ratioDollar: 3.6,
-    // ratioEuro: 4.2
+    amount: "",
+    product: "electricity"
   };
 
   currencies = [
@@ -40,8 +39,14 @@ class ExchangeCounter extends React.Component {
       amount: e.target.value
     });
   };
+
+  handleSelect = e => {
+    this.setState({
+      product: e.target.value
+    })
+  }
   render() {
-    const { amount } = this.state;
+    const { amount, product } = this.state;
 
     const calculators = this.currencies.map(currency => (
       <Cash
@@ -56,9 +61,9 @@ class ExchangeCounter extends React.Component {
       <div className="app">
         <label>
           Wybierz produkt:
-          <select>
+          <select value={product} onChange={this.handleSelect}>
             <option value="electricity">prąd</option>
-            <option value="gas">jabłka</option>
+            <option value="gas">bęzyna</option>
             <option value="apple">jabłka</option>
           </select>
         </label>
