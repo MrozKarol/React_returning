@@ -48,11 +48,16 @@ class ExchangeCounter extends React.Component {
     });
   };
   render() {
-    const { amount,} = this.state;
-    
+    const { amount } = this.state;
+
     const calculators = this.currencies.map(currency => (
-      <Cash key={currency.id} ratio={currency.ratio} title={this.title} cash={amount} />
-    ))
+      <Cash
+        key={currency.id}
+        ratio={currency.ratio}
+        title={currency.title}
+        cash={amount}
+      />
+    ));
 
     return (
       <div className="app">
@@ -64,8 +69,7 @@ class ExchangeCounter extends React.Component {
             onChange={this.handleChange}
           />
         </label>
-        {/* <Cash cash={amount} ratio={ratioDollar} title="Wartość w euro:" />
-        <Cash cash={amount} ratio={ratioEuro} title="Wartość w dolarach:" /> */}
+        {calculators}
       </div>
     );
   }
