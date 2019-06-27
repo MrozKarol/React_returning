@@ -3,7 +3,7 @@
 const Cash = props => (
   <div>
     {props.title}
-    {props.cash <= 0 ? "" : (props.cash / props.ratio).toFixed(2)}
+    {props.cash <= 0 ? "" : (props.cash / props.ratio * props.price).toFixed(2)}
   </div>
 );
 
@@ -13,8 +13,8 @@ class ExchangeCounter extends React.Component {
     product: "electricity"
   };
 
-  static defaultProps ={
-    currencies :[
+  static defaultProps = {
+    currencies: [
       {
         id: 0,
         name: "zloty",
@@ -40,7 +40,7 @@ class ExchangeCounter extends React.Component {
         title: "Wartość w funtach:"
       }
     ],
-    prices:{
+    prices: {
       electricity: .51,
       gas: 47,
       apple: 2.70
@@ -71,15 +71,21 @@ class ExchangeCounter extends React.Component {
     }
   }
 
+  selectPrice = (select) => {
+    console.log(this.props.prices[select])
+    return this.props.prices[select]
+  }
+
   render() {
     const { amount, product } = this.state;
 
-    const calculators = this.currencies.map(currency => (
+    const calculators = this.props.currencies.map(currency => (
       <Cash
         key={currency.id}
         ratio={currency.ratio}
         title={currency.title}
         cash={amount}
+        price={this.selectPrice(product)}
       />
     ));
 
