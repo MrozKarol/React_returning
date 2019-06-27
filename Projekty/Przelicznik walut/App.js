@@ -1,11 +1,4 @@
-// const Dollars = (props) =>(
-//     <div>Wartość w dolarach:{props.cash <= 0 ? "" :(props.cash / props.ratio).toFixed(2)}</div>
-// )
-
-// const Euros = (props) => (
-//     <div>Wartość w euro:{props.cash <= 0 ? "" :(props.cash / props.ratio).toFixed(2)}</div>
-// )
-// optymalizacja
+// Przelicznik v 0.1.0
 
 const Cash = props => (
   <div>
@@ -61,6 +54,15 @@ class ExchangeCounter extends React.Component {
 
     return (
       <div className="app">
+        <label>
+          Wybierz produkt:
+          <select>
+            <option value="electricity">prąd</option>
+            <option value="gas">jabłka</option>
+            <option value="apple">jabłka</option>
+          </select>
+        </label>
+        <br />
         <label>
           Wpisz kwotę:
           <input
