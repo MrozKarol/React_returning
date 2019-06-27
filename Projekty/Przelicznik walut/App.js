@@ -13,26 +13,39 @@ class ExchangeCounter extends React.Component {
     product: "electricity"
   };
 
-  currencies = [
-    {
-      id: 1,
-      name: "dollar",
-      ratio: 3.6,
-      title: "Wartość w dolarach:"
-    },
-    {
-      id: 2,
-      name: "euro",
-      ratio: 4.1,
-      title: "Wartość w deuro:"
-    },
-    {
-      id: 3,
-      name: "pound",
-      ratio: 5.1,
-      title: "Wartość w funtach:"
+  static defaultProps ={
+    currencies :[
+      {
+        id: 0,
+        name: "zloty",
+        ratio: 1,
+        title: "Wartość w złotówkach:"
+      },
+      {
+        id: 1,
+        name: "dollar",
+        ratio: 3.6,
+        title: "Wartość w dolarach:"
+      },
+      {
+        id: 2,
+        name: "euro",
+        ratio: 4.1,
+        title: "Wartość w deuro:"
+      },
+      {
+        id: 3,
+        name: "pound",
+        ratio: 5.1,
+        title: "Wartość w funtach:"
+      }
+    ],
+    prices:{
+      electricity: .51,
+      gas: 47,
+      apple: 2.70
     }
-  ];
+  }
 
   handleChange = e => {
     this.setState({
