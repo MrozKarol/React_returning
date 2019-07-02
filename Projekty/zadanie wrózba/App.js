@@ -1,4 +1,7 @@
-class Counter extends React.Component {
+// Jeden komponent
+// zobacz wróżbę, losuje jedną z trzech wróżb
+
+class Omen extends React.Component {
 
     state = {
      
@@ -7,10 +10,12 @@ class Counter extends React.Component {
     render(){
         return(
             <React.Fragment  >
-                <h1>Zadanie wrózba</h1>
+               <button>Zobacz wróżbę</button>
+          
+               <h2>dd</h2>
             </React.Fragment>
         )
     }
 }
 
-ReactDOM.render(<Counter />, document.getElementById('root'))
+ReactDOM.render(<Omen />, document.getElementById('root'))
