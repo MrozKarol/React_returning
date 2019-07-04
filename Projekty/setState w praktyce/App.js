@@ -1,14 +1,21 @@
 
 class Counter extends React.Component {
     state = {
-
+        number1: 0,
     };
 
+    handleClick1 = () => {
+        this.setState({
+            number1: this.state.number1 + 1
+        })
+    }
     render() {
 
         return (
-            <div className="app">c
-         </div>
+            <div className="app">
+                <button onClick={this.handleClick1}>Podaj o 1</button>
+                <h2>{this.state.number1}</h2>
+            </div>
         );
     }
 }
