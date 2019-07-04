@@ -8,9 +8,10 @@ class Counter extends React.Component {
         this.setState({
             number1: this.state.number1 + 1
         })
+        console.log(this.state.number1)
     }
     render() {
-
+        console.log(this.state.number1)
         return (
             <div className="app">
                 <button onClick={this.handleClick1}>Podaj o 1</button>
