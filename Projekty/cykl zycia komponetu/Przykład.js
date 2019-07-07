@@ -22,7 +22,8 @@ class Przykład extends React.Component {
                 >Przełącz
                 </button>
                 <p>Liczba aktualizacji: {this.state.numberUpdate}</p>
-                <Child status={this.state.status}/>
+                <Child status={this.state.status} />
+                {this.state.status ? <Child2 /> : null}
             </React.Fragment>
         );
     }
@@ -36,14 +37,29 @@ class Child extends React.Component {
     componentDidUpdate() {
         console.log("Chaild zaktualizowany")
     }
-    render(){
+    render() {
         console.log("renderowanie Child1")
-        return(
+        return (
             <div style={this.props.status ? { color: "green" } : { color: "red" }}>{String(this.props.status).toLocaleUpperCase()}</div>
         )
     }
 }
 
+class Child2 extends React.Component {
+    componentDidMount() {
+        console.log("Chil2 zamontowany")
+    }
 
-
+    componentDidUpdate() {
+        console.log("Chail2 zaktualizowany")
+    }
+    componentWillUnmount() {
+        console.log("Komponent Child2 odmontowany")
+    }
+    render() {
+        return (
+            <div>Komponent Child2 zamonowany</div>
+        )
+    }
+}
 ReactDOM.render(<Przykład />, document.getElementById("root"));
