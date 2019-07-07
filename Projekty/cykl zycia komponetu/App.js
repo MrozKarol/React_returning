@@ -12,6 +12,11 @@ class App extends React.Component {
         console.log("Wywołaś componentWillMount")
     }
 
+    //metoda króra wywołuje sie jako ostatnia po metodzie render
+    componentDidMount(){
+        console.log("Wywołaś componentDidMount")
+    }
+
     render(){
         console.log("Wywołana metoda render")
         return(
