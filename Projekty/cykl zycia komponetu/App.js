@@ -31,7 +31,26 @@ class App extends React.Component {
         return (
             <React.Fragment  >
                 <p>montowanie komponentu</p>
+                <Child/>
             </React.Fragment>
+        )
+    }
+}
+
+class Child extends React.Component {
+    componentDidMount(){
+        console.log(`
+        ---------------------------------------------
+        Wywołać componentDidMOunt w komponecie Child
+        ---------------------------------------------`)
+        // this.setState({
+        //     number: 1
+        // })
+    }
+    render(){
+        console.log("Wywołana metoda render w Child")
+        return(
+            <p>dziecko</p>
         )
     }
 }
