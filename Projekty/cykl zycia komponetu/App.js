@@ -1,27 +1,36 @@
 class App extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props)
-        this.state={}
+        this.state = {
+            number:0
+        }
         console.log("Wywołać metode constructor")
     }
 
     // metoda wycofana od wersji 17
     //metoda która wywołuje sie sama przez react
-    componentWillMount(){
+    componentWillMount() {
         console.log("Wywołaś componentWillMount")
     }
 
     //metoda króra wywołuje sie jako ostatnia po metodzie render
-    componentDidMount(){
+    componentDidMount() {
         console.log("Wywołaś componentDidMount")
+        this.setState({
+            number: 1
+        })
     }
 
-    render(){
+    componentDidUpdate() {
+        console.log("Wywołaś componentDidUpdate")
+    }
+
+    render() {
         console.log("Wywołana metoda render")
-        return(
+        return (
             <React.Fragment  >
-               <p>montowanie komponentu</p>
+                <p>montowanie komponentu</p>
             </React.Fragment>
         )
     }
