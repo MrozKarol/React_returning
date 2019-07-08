@@ -5,12 +5,25 @@ class Counter extends React.Component {
   };
 
   handleMultiplication = () => {
-    this.setState({
-      result: this.state.result * this.state.ratio
-    });
+    this.setState(()=>({
+        result: this.state.result * this.state.ratio
+    }));
   };
+  componentDidUpdate(){
+      if(this.state.result > 1000 && this.state.ratio ===2){
+          this.setState(()=>({
+              ratio: 0.5
+          }))
+      }else if (this.state.result <1 && this.state.ratio ===0.5){
+        this.setState(()=>({
+            ratio: 2
+        }))
+      }
+  }
+
+       
+
   render() {
-    console.log("renderowanie Child1");
     return (
       <div>
         <p>
