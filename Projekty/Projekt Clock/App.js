@@ -1,3 +1,27 @@
+class App extends React.Component {
+  state={
+    active: true
+  }
+  handleClick = ()=>{
+    this.setState(state=> ({
+      active: !state.active
+    }))
+  }
+  render(){
+    return(
+      <div>
+        <SwietchButton active={this.state.active} onClick={this.handleClick}/>
+        {this.state.active ? <Clock/> : null }
+      </div>
+    )
+  }
+}
+const SwietchButton = (props)=>(
+  <button style={props.active ? { color: "red" } : { color: "green" }} 
+          onClick={props.onClick} >{props.active ? "Wyłacz": "Włącz"}
+  </button>
+)
+
 class Clock extends React.Component {
 
   state = {
@@ -33,4 +57,4 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(<Clock />, document.getElementById("root"));
+ReactDOM.render(<App />, document.getElementById("root"));
