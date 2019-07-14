@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{Component} from 'react';
 import './App.css';
 //profesjonalna baza danych ;)
 const data =[
@@ -19,12 +19,28 @@ data.push({
 console.log(data)
 },2000)
 
-function App() {
-  return (
-    <div className="App">
-     Działalll
-    </div>
-  );
-}
+class App extends Component {
+  state = { 
+    //uzycie rest operatora dla skopiowania tablicy, samo odwołanie do tablicy data zrobiłoby referencje
+    comments: [...data]
+   }
 
+  render() { 
+    const comments = this.state.comments.map(comment =>(
+      //uzycie key
+      <div key={comment.id}> 
+        <h3>{comment.title}</h3>
+        <h4>{comment.body}</h4>
+      </div>
+    ))
+
+    return ( 
+      //reverse() odwrotne umieszczenie elementów tablicy
+      <div className="App">{comments.reverse()}</div>
+     );
+  }
+}
+ 
 export default App;
+
+
