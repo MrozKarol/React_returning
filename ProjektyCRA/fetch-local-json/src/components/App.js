@@ -4,7 +4,8 @@ import Word from './Word';
 
 class App extends Component {
   state = {
-    words: []
+    words: [],
+    isLoaded: false
   }
 
   componentDidMount() {
@@ -16,7 +17,8 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         this.setState({
-          words: data.words
+          words: data.words,
+          isLoaded: true
         })
       })
   }
@@ -27,7 +29,7 @@ class App extends Component {
     ))
     return (
       <ul>
-        {words}
+        {this.state.isLoaded ? words : 'Wczytuje dane'}
       </ul>
     );
   }
