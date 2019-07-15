@@ -8,6 +8,10 @@ class App extends Component {
   }
 
   componentDidMount() {
+    setTimeout(this.fetchData, 3000)
+  }
+
+  fetchData = () => {
     fetch('data/word.json')
       .then(response => response.json())
       .then(data => {
