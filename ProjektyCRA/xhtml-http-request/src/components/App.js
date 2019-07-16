@@ -46,8 +46,8 @@ class App extends Component {
 
     return (
       <div className="App">
-        {users}
-        {usersTwo}
+        <div className="one">{users}</div>
+        <div className="two">Lista z komponentu{usersTwo}</div>
       </div>
     );
   }
