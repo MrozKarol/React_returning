@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import UsersTwo from './UsersTwo'
 
 class App extends Component {
   state = {
@@ -39,9 +40,14 @@ class App extends Component {
         <p>{user.address.street} <span><i>{user.address.city}</i></span></p>
       </div>
     ))
+    const usersTwo = this.state.users.map(user =>(
+      <UsersTwo key={user.id} userName={user.name} userAddress={user.address.street} userCity={user.address.city}/>
+    ))
+
     return (
       <div className="App">
         {users}
+        {usersTwo}
       </div>
     );
   }
