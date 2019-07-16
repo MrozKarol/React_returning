@@ -23,15 +23,26 @@ class App extends Component {
       if (xhr.status === 200) {
         const users = JSON.parse(xhr.response)
         console.log(users)
+
+        //przekazanie do stejtu obiektu JSON
+        this.setState({
+          users: users
+        })
       }
     }
   }
 
   render() {
+    const users = this.state.users.map(user => (
+      <div key={user.id}>
+        <h4>{user.name}</h4>
+        <p>{user.address.street} <span><i>{user.address.city}</i></span></p>
+      </div>
+    ))
     return (
       <div className="App">
-        j
-    </div>
+        {users}
+      </div>
     );
   }
 }
