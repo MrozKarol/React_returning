@@ -15,8 +15,15 @@ class App extends Component {
     xhr.send(null);
     //onload: co ma sie wydarzyć w pomencie kiedy otrzymamy odpowiedź od serwera
     xhr.onload = () => {
-      console.log(xhr.status) //sprawdzenie statusu
-      console.log(xhr.response) // sprawdzenie odpowiedzi
+      // console.log(xhr.status) //sprawdzenie statusu
+      // console.log(xhr.response) // sprawdzenie odpowiedzi
+
+      //sprawdzenie statusu, przypisanie do zmiennej users dzejsona i użycie metody parse
+      //która zamienia stringa na obiekt (parsujemy odpowiedź response)
+      if (xhr.status === 200) {
+        const users = JSON.parse(xhr.response)
+        console.log(users)
+      }
     }
   }
 
