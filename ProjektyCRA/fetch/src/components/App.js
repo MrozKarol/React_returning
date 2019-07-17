@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <div>
         <ButtonFetchUsers click={this.handleDataFetch} />
-        {users ? <UsersList /> : users}
+        {users ? <UsersList users={users} /> : users}
       </div>
     );
   }
