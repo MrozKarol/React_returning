@@ -1,12 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import UsersList from './UsersList'
+import ButtonFetchUsers from './ButtonFetchUsers'
 
-function App() {
-  return (
-    <div>
-     działa
-    </div>
-  );
+class App extends Component {
+  state = {}
+  render() {
+    return (
+      <div>
+        <ButtonFetchUsers />
+        <UsersList />
+      </div>
+    );
+  }
 }
 
 export default App;
