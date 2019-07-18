@@ -3,12 +3,12 @@ import './App.css';
 import UsersList from './UsersList'
 import ButtonFetchUsers from './ButtonFetchUsers'
 
-const API = "http://randomuser.me/api/?results=5";
+const API = "http://randomuser.me/api/?results=1";
 const proxyurl = "https://cors-anywhere.herokuapp.com/" //rozwiazanie problemu z 'Access-Control-Allow-Origin'
 
 class App extends Component {
   state = {
-    users:null
+    users:[]
   }
   handleDataFetch = () =>{
     // console.log("click")

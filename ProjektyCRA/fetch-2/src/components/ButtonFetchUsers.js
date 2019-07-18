@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 const ButtonFetchUsers = (props) => {
     return (
        <div>
-        <Button bsStyle="primary"onClick={props.click}>Dodaj 5 uzytkowników</Button>
+        <Button size="lg" variant="info" onClick={props.click}>Dodaj użytkownika</Button>
       </div>
     );
 }
