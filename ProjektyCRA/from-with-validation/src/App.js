@@ -6,7 +6,21 @@ class App extends Component {
     username: '',
     email: '',
     pass: '',
-    accept: false
+    accept: false,
+
+    errors: {
+      username: false,
+      email: false,
+      pass: false,
+      accept: false,
+    }
+  }
+
+  messages = {
+    username_incorrect: 'Nazwa musi być dłuższa niż 10 zanków i nie może zawierać spacji',
+    email_incorrect: 'brak @ w emailu',
+    password_incorect: 'hasło musi mieć 8 znaków',
+    accept_incorrect: 'niepotwiedzona zgoda'
   }
 
   handleChange = (e) => {
@@ -28,7 +42,6 @@ class App extends Component {
       })
 
     }
-
   }
 
   handleSubmit = (e) => {
@@ -43,6 +56,7 @@ class App extends Component {
         <form onSubmit={this.handleSubmit} noValidate>
           <label htmlFor="user">Twoje imię:
             <input type="text" id="user" name="username" value={this.state.username} onChange={this.handleChange} />
+            {this.state.errors.username && <span>{this.messages.username_incorrect}</span>}
           </label>
           <label htmlFor="email">Twoje adres email:
             <input type="email" id="email" name="email" value={this.state.email} onChange={this.handleChange} />
