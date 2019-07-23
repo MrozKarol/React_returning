@@ -68,10 +68,10 @@ class App extends Component {
     }else {
       this.setState({
         errors: {
-          username: false,
-          email: false,
-          pass: false,
-          accept: false,
+          username: !validation.username,
+          email: !validation.email,
+          pass: !validation.password,
+          accept: !validation.accept,
         }
       })
     }
