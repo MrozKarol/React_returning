@@ -15,3 +15,8 @@ input[type="checkbox"]{
   margin-left: 0;
   margin-right: 10px
 }
+
+span{
+  color:red;
+  font-size: 10px
+}
