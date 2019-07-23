@@ -7,6 +7,7 @@ class App extends Component {
     email: '',
     pass: '',
     accept: false,
+    message: ' ',
 
     errors: {
       username: false,
@@ -56,6 +57,7 @@ class App extends Component {
         email: '',
         pass: '',
         accept: false,
+        message: 'formularz został wyłany',
 
         errors: {
           username: false,
@@ -64,7 +66,7 @@ class App extends Component {
           accept: false,
         }
       })
-      alert("formularz wysłany")
+      // alert("formularz wysłany")
     }else {
       this.setState({
         errors: {
@@ -110,6 +112,14 @@ class App extends Component {
   }
 
 
+  componentDidUpdate(){
+    if(this.state.message !==''){
+      setTimeout(()=>this.setState({
+        message: ''
+      }),3000)
+    }
+  }
+
   render() {
     return (
       <div className="App">
@@ -133,6 +143,7 @@ class App extends Component {
           </label>
           <button>Zapisz się</button>
         </form>
+        {this.state.message && <h3>{this.state.message}</h3> }
       </div>);
   }
 }
