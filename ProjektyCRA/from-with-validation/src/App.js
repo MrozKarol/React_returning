@@ -46,7 +46,8 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     //zmienna validation odwołuje sie do metody która waliduje formularz
-    this.validation = this.formValidation()
+    const validation = this.formValidation()
+    console.log(validation)
 
 
     if (true) {
@@ -89,7 +90,7 @@ class App extends Component {
     if(this.state.email.indexOf('@')!== -1){
       email = true;
     }
-    if(this.state.email.length === 8){
+    if(this.state.pass.length === 8){
       password = true
     }
     if(this.state.accept){
