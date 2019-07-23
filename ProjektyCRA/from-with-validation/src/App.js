@@ -67,7 +67,7 @@ class App extends Component {
         }
       })
       // alert("formularz wysłany")
-    }else {
+    } else {
       this.setState({
         errors: {
           username: !validation.username,
@@ -79,7 +79,7 @@ class App extends Component {
     }
   }
 
-  formValidation =()=>{
+  formValidation = () => {
     //true jest ok
     //false jest źle
     let username = false;
@@ -87,22 +87,22 @@ class App extends Component {
     let password = false;
     let accept = false;
     let correct = false;
-    if(this.state.username.length > 10 && this.state.username.indexOf(' ') === -1){
+    if (this.state.username.length > 10 && this.state.username.indexOf(' ') === -1) {
       username = true
     }
-    if(this.state.email.indexOf('@')!== -1){
+    if (this.state.email.indexOf('@') !== -1) {
       email = true;
     }
-    if(this.state.pass.length === 8){
+    if (this.state.pass.length === 8) {
       password = true
     }
-    if(this.state.accept){
+    if (this.state.accept) {
       accept = true
     }
-    if (username && email && password && accept){
+    if (username && email && password && accept) {
       correct = true
     }
-    return({
+    return ({
       correct,
       username,
       email,
@@ -112,11 +112,11 @@ class App extends Component {
   }
 
 
-  componentDidUpdate(){
-    if(this.state.message !==''){
-      setTimeout(()=>this.setState({
+  componentDidUpdate() {
+    if (this.state.message !== '') {
+      setTimeout(() => this.setState({
         message: ''
-      }),3000)
+      }), 3000)
     }
   }
 
@@ -143,7 +143,7 @@ class App extends Component {
           </label>
           <button>Zapisz się</button>
         </form>
-        {this.state.message && <h3>{this.state.message}</h3> }
+        {this.state.message && <h3>{this.state.message}</h3>}
       </div>);
   }
 }
