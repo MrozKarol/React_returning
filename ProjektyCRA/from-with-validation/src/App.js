@@ -43,10 +43,68 @@ class App extends Component {
 
     }
   }
-
   handleSubmit = (e) => {
     e.preventDefault()
-    console.log("działa")
+    //zmienna validation odwołuje sie do metody która waliduje formularz
+    this.validation = this.formValidation()
+
+
+    if (true) {
+      this.setState({
+        username: '',
+        email: '',
+        pass: '',
+        accept: false,
+
+        errors: {
+          username: false,
+          email: false,
+          pass: false,
+          accept: false,
+        }
+      })
+    }else {
+      this.setState({
+        errors: {
+          username: false,
+          email: false,
+          pass: false,
+          accept: false,
+        }
+      })
+    }
+  }
+
+  formValidation =()=>{
+    //true jest ok
+    //false jest źle
+    let username = false;
+    let email = false;
+    let password = false;
+    let accept = false;
+    let correct = false;
+    if(this.state.username.length > 10 && this.setState.username.indexOf(' ') === -1){
+      username = true
+    }
+    if(this.state.email.indexOf('@')!== -1){
+      email = true;
+    }
+    if(this.state.email.length === 8){
+      password = true
+    }
+    if(this.state.accept){
+      accept = true
+    }
+    if (username && email && password && accept){
+      correct = true
+    }
+    return({
+      correct,
+      username,
+      email,
+      password,
+      accept
+    })
   }
 
 
