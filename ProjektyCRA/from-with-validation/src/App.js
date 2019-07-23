@@ -50,7 +50,7 @@ class App extends Component {
     console.log(validation)
 
 
-    if (true) {
+    if (validation.correct) {
       this.setState({
         username: '',
         email: '',
@@ -64,6 +64,7 @@ class App extends Component {
           accept: false,
         }
       })
+      alert("formularz wysłany")
     }else {
       this.setState({
         errors: {
@@ -84,7 +85,7 @@ class App extends Component {
     let password = false;
     let accept = false;
     let correct = false;
-    if(this.state.username.length > 10 && this.setState.username.indexOf(' ') === -1){
+    if(this.state.username.length > 10 && this.state.username.indexOf(' ') === -1){
       username = true
     }
     if(this.state.email.indexOf('@')!== -1){
