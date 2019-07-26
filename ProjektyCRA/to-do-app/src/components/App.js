@@ -33,13 +33,13 @@ class App extends Component {
 
     ]
   }
-
-  delateTask =()=>{
-    console.log('delate task')
+  //przekazanie id do określenia numeru tasku (patrz komponent Task)
+  delateTask =(id)=>{
+    console.log('delate task' + id)
   }
 
-  changeTaskStatus =()=>{
-    console.log('change task status')
+  changeTaskStatus =(id)=>{
+    console.log('change task status' + id)
   }
   render() {
     return (
