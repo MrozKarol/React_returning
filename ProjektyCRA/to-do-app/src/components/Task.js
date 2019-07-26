@@ -7,8 +7,8 @@ const Task = (props) => {
         <div>
             <p>
                 <strong>{text}</strong> - do  <span>{date} </span>
-                <button>Zostało zrobione</button>
-                <button>X</button>
+                <button onClick={props.change}>Zostało zrobione</button>
+                <button onClick={props.delate}>X</button>
             </p>
         </div>
     );

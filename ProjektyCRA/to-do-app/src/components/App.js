@@ -33,12 +33,20 @@ class App extends Component {
 
     ]
   }
+
+  delateTask =()=>{
+    console.log('delate task')
+  }
+
+  changeTaskStatus =()=>{
+    console.log('change task status')
+  }
   render() {
     return (
       <div>
         działa
       <AddTask />
-        <TaskList tasks={this.state.task} />
+        <TaskList  tasks={this.state.task} delate={this.delateTask} change={this.changeTaskStatus} />
       </div>);
   }
 }
