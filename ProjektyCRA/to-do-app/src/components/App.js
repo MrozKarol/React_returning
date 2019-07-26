@@ -6,7 +6,7 @@ import TaskList from './TaskList'
 
 class App extends Component {
   state = {
-    task: [
+    tasks: [
       {
         id: 0,
         text: 'zagrać w gre Tomb Rider :)',
@@ -16,14 +16,14 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 2,
+        id: 1,
         text: 'nauczyć sie reacta :)',
         date: '3001-01-01',
         important: true,
         active: true,
         finishDate: null,
       }, {
-        id: 3,
+        id: 2,
         text: 'pozdrowić Damiana :)',
         date: '2020-01-01',
         important: false,
@@ -35,7 +35,19 @@ class App extends Component {
   }
   //przekazanie id do określenia numeru tasku (patrz komponent Task)
   delateTask = (id) => {
-    console.log('delate task' + id)
+    // console.log('delate task' + id)
+    //zrobienie kopi tablicy ze stejtu
+    const tasks = [...this.state.tasks];
+    //przeszukanie tablicy tasks zeby znalazła indeks
+    const index = tasks.findIndex(task => task.id === id);
+    // console.log(index)
+    // usunieie elementu z tablicy
+    tasks.splice(index, 1)
+    this.setState({
+      tasks: tasks
+    })
+
+
   }
 
   changeTaskStatus = (id) => {
@@ -46,7 +58,7 @@ class App extends Component {
       <div>
         działa
       <AddTask />
-        <TaskList tasks={this.state.task} delate={this.delateTask} change={this.changeTaskStatus} />
+        <TaskList tasks={this.state.tasks} delate={this.delateTask} change={this.changeTaskStatus} />
       </div>);
   }
 }
