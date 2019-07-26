@@ -34,11 +34,11 @@ class App extends Component {
     ]
   }
   //przekazanie id do określenia numeru tasku (patrz komponent Task)
-  delateTask =(id)=>{
+  delateTask = (id) => {
     console.log('delate task' + id)
   }
 
-  changeTaskStatus =(id)=>{
+  changeTaskStatus = (id) => {
     console.log('change task status' + id)
   }
   render() {
@@ -46,7 +46,7 @@ class App extends Component {
       <div>
         działa
       <AddTask />
-        <TaskList  tasks={this.state.task} delate={this.delateTask} change={this.changeTaskStatus} />
+        <TaskList tasks={this.state.task} delate={this.delateTask} change={this.changeTaskStatus} />
       </div>);
   }
 }
