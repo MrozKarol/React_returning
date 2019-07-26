@@ -22,7 +22,7 @@ class App extends Component {
         important: true,
         active: true,
         finishDate: null,
-      },{
+      }, {
         id: 3,
         text: 'pozdrowić Damiana :)',
         date: '2020-01-01',
@@ -38,7 +38,7 @@ class App extends Component {
       <div>
         działa
       <AddTask />
-        <TaskList />
+        <TaskList tasks={this.state.task} />
       </div>);
   }
 }
