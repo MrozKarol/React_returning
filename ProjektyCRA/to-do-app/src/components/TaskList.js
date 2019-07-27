@@ -17,11 +17,12 @@ const TaskList = (props) => {
         <div>
             <div className="active">
                 <h1>Zadania do zrobienia</h1>
-                {activeTasks.length > 0 ? activeTasks : <p>nie masz nic do roboty ;)</p> }
+                {activeTasks.length > 0 ? activeTasks : <p>nie masz nic do roboty ;)</p>}
             </div>
             <div className="done">
                 <h3>Zadania zrobione <em>{done.length}</em></h3>
-                {doneTasks}
+                {doneTasks.length > 5 && <span>wyświetlonych jest jedynie 5 ostatnich elemntów</span>}
+                {doneTasks.slice(0, 5)}
             </div>
         </div>
 

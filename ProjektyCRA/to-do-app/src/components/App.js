@@ -22,12 +22,37 @@ class App extends Component {
         important: true,
         active: true,
         finishDate: null,
-      }, {
+      }, 
+      {
         id: 2,
         text: 'pozdrowić Damiana :)',
         date: '2020-01-01',
         important: false,
         active: false,
+        finishDate: null,
+      },
+      {
+        id: 3,
+        text: 'pozdrowić Janka :)',
+        date: '2020-01-01',
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 4,
+        text: 'pozdrowić Bartka C. :)',
+        date: '2020-01-01',
+        important: false,
+        active: true,
+        finishDate: null,
+      },
+      {
+        id: 5,
+        text: 'pozdrowić Pawła M :)',
+        date: '2020-01-01',
+        important: false,
+        active: true,
         finishDate: null,
       }
 
