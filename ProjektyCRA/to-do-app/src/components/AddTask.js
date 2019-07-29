@@ -4,6 +4,7 @@ class AddTask extends Component {
     state = { 
         text:'',
         checked: false,
+        date:'2019-07-29'
      }
     render() { 
         return ( 
@@ -13,7 +14,7 @@ class AddTask extends Component {
              <label htmlFor="important">Prioeytet</label>
              <br/>
              <label htmlFor="date"> Do kiedy zrobić</label>
-             <input type="date" value="2019-08-01" min="2019-09-09" max="2020-01-05" />
+             <input type="date" value={this.state.date} min="2019-09-09" max="2020-01-05" />
              <br/>
              <button>DODAJ</button>
             </div>
