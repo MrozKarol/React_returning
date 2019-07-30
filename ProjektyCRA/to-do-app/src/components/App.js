@@ -5,7 +5,9 @@ import TaskList from './TaskList'
 
 
 class App extends Component {
+  counter = 6
   state = {
+
     tasks: [
       {
         id: 0,
@@ -22,7 +24,7 @@ class App extends Component {
         important: true,
         active: true,
         finishDate: null,
-      }, 
+      },
       {
         id: 2,
         text: 'pozdrowić Damiana :)',
@@ -76,7 +78,7 @@ class App extends Component {
   }
 
   changeTaskStatus = (id) => {
-    console.log('change task status' + id);
+    // console.log('change task status' + id);
     const tasks = [...this.state.tasks];
     tasks.forEach(task => {
       if (task.id === id) {
@@ -90,8 +92,17 @@ class App extends Component {
 
   }
 
-  addTask =() =>{
-    console.log("działa")
+  addTask = (text,date,important) => {
+    // console.log("działa")
+    const task = {
+      id: this.counter,
+      text: text,
+      date: date,
+      important: important,
+      active: true,
+      finishDate: null,
+    }
+    this.counter++
     return true
 
   }
@@ -99,7 +110,7 @@ class App extends Component {
     return (
       <div>
         TODO APP
-      <AddTask add={this.addTask}/>
+      <AddTask add={this.addTask} />
         <TaskList tasks={this.state.tasks} delate={this.delateTask} change={this.changeTaskStatus} />
       </div>);
   }

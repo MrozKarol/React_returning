@@ -27,8 +27,9 @@ class AddTask extends Component {
     }
 
     handleClick = (props) => {
-        console.log('dodaj')
-        const add = this.props.add()
+        // console.log('dodaj')
+        const {text,date,important}= this.state
+        const add = this.props.add(text,date,important)
         //dodanie czyszczenia formularza
         if (add === true) {
             this.setState({
