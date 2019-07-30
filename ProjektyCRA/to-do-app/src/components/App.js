@@ -89,11 +89,17 @@ class App extends Component {
     })
 
   }
+
+  addTask =() =>{
+    console.log("działa")
+    return true
+
+  }
   render() {
     return (
       <div>
         TODO APP
-      <AddTask />
+      <AddTask add={this.addTask}/>
         <TaskList tasks={this.state.tasks} delate={this.delateTask} change={this.changeTaskStatus} />
       </div>);
   }
