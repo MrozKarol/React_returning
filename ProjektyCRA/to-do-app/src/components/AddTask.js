@@ -27,17 +27,22 @@ class AddTask extends Component {
     }
 
     handleClick = () => {
+
         // console.log('dodaj')
         //destrukteryzacja
         const { text, checked, date } = this.state
-        const add = this.props.add(text, date, checked)
-        //dodanie czyszczenia formularza
-        if (add === true) {
-            this.setState({
-                text: '',
-                checked: false,
-                date: this.minDate
-            })
+        if (text.length > 2) {
+            const add = this.props.add(text, date, checked)
+            //dodanie czyszczenia formularza
+            if (add === true) {
+                this.setState({
+                    text: '',
+                    checked: false,
+                    date: this.minDate
+                })
+            }
+        }else{
+            alert('za krótka nazwa')
         }
     }
     render() {
