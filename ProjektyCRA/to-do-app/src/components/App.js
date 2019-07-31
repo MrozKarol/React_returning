@@ -92,7 +92,7 @@ class App extends Component {
 
   }
 
-  addTask = (text,date,important) => {
+  addTask = (text, date, important) => {
     // console.log("działa")
     const task = {
       id: this.counter,
@@ -103,6 +103,7 @@ class App extends Component {
       finishDate: null,
     }
     this.counter++
+    console.log(task)
     return true
 
   }

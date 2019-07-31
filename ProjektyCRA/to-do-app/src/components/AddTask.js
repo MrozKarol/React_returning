@@ -26,10 +26,11 @@ class AddTask extends Component {
         })
     }
 
-    handleClick = (props) => {
+    handleClick = () => {
         // console.log('dodaj')
-        const {text,date,important}= this.state
-        const add = this.props.add(text,date,important)
+        //destrukteryzacja
+        const { text, checked, date } = this.state
+        const add = this.props.add(text, date, checked)
         //dodanie czyszczenia formularza
         if (add === true) {
             this.setState({
@@ -41,7 +42,7 @@ class AddTask extends Component {
     }
     render() {
         let maxDate = this.minDate.slice(0, 4) * 1 + 1;
-        console.log(maxDate);
+        // console.log(maxDate);
         maxDate = maxDate + "-12-31"
         return (
             <div className="form">
