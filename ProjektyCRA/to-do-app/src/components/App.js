@@ -104,6 +104,10 @@ class App extends Component {
     }
     this.counter++
     console.log(task)
+    this.setState(prevState=>({
+      //tworzenie npwej tablicy składająca sie ze wszystkich elementów plus nowy task
+      tasks:[...prevState.tasks,task]
+    }))
     return true
 
   }
