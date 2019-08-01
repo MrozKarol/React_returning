@@ -5,58 +5,17 @@ import TaskList from './TaskList'
 
 
 class App extends Component {
-  counter = 6
   state = {
 
     tasks: [
       {
         id: 0,
-        text: 'zagrać w gre Tomb Rider :)',
-        date: '2019-02-15',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 1,
-        text: 'nauczyć sie reacta :)',
-        date: '3001-01-01',
-        important: true,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 2,
-        text: 'pozdrowić Damiana :)',
-        date: '2020-01-01',
+        text: '',
+        date: '',
         important: false,
-        active: false,
+        active: null,
         finishDate: null,
       },
-      {
-        id: 3,
-        text: 'pozdrowić Janka :)',
-        date: '2020-01-01',
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 4,
-        text: 'pozdrowić Bartka C. :)',
-        date: '2020-01-01',
-        important: false,
-        active: true,
-        finishDate: null,
-      },
-      {
-        id: 5,
-        text: 'pozdrowić Pawła M :)',
-        date: '2020-01-01',
-        important: false,
-        active: true,
-        finishDate: null,
-      }
 
     ]
   }
@@ -93,9 +52,10 @@ class App extends Component {
   }
 
   addTask = (text, date, important) => {
+    const counter =this.state.tasks.length -1
     // console.log("działa")
     const task = {
-      id: this.counter,
+      id: counter,
       text: text,
       date: date,
       important: important,
@@ -104,6 +64,7 @@ class App extends Component {
     }
     this.counter++
     console.log(task)
+    console.log(counter)
     this.setState(prevState=>({
       //tworzenie npwej tablicy składająca sie ze wszystkich elementów plus nowy task
       tasks:[...prevState.tasks,task]
@@ -112,7 +73,9 @@ class App extends Component {
 
   }
   render() {
+    console.log(this.state.tasks)
     return (
+
       <div>
         TODO APP
       <AddTask add={this.addTask} />
