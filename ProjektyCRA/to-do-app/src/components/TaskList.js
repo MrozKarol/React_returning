@@ -13,6 +13,9 @@ const TaskList = (props) => {
         <Task key={task.id} task={task} delate={props.delate} change={props.change} />
     ))
 
+    done.sort((a,b) => b.finishDate-a.finishDate
+    )
+
     return (
         <div>
             <div className="active">
