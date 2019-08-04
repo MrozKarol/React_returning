@@ -9,7 +9,7 @@ class App extends Component {
 
     tasks: [
       {
-        id: 0,
+        id: null,
         text: '',
         date: '',
         important: false,
