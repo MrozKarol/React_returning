@@ -4,17 +4,30 @@ import Task from './Task'
 const TaskList = (props) => {
     //zwrócenie tablicy z active metoda filter, póżniej wyświetlenie metoda map
     const active = props.tasks.filter(task => task.active === true)
+    active.sort((a, b) => {
+        a = a.text.toLowerCase();
+        b = b.text.toLowerCase();
+
+        if (a < b) return -1;
+        if (a > b) return 1;
+        return 0
+    })
     const activeTasks = active.map(task => (
         <Task key={task.id} task={task} delate={props.delate} change={props.change} />
     ))
     //zwrócenie tablicy z !active metoda filter, później wyświetlenie
     const done = props.tasks.filter(task => task.active === false)
+    done.sort((a, b) => b.finishDate - a.finishDate)
     const doneTasks = done.map(task => (
         <Task key={task.id} task={task} delate={props.delate} change={props.change} />
     ))
 
-    done.sort((a,b) => b.finishDate-a.finishDate
-    )
+
+
+
+
+
+    done.sort((a, b) => b.finishDate - a.finishDate)
 
     return (
         <div>
