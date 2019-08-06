@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-import { BrowserRouter, Link, Route } from 'react-router-dom'
+import { BrowserRouter, NavLink, Route } from 'react-router-dom'
 
 const Home = () => <h1>Strona startowa</h1>
 const News = () => <h1>Aktualności</h1>
@@ -15,9 +15,9 @@ function App() {
         <header>
           <nav>
             <ul>
-              <li><Link to="/">Start</Link></li>
-              <li><Link to="/news">aktualności</Link></li>
-              <li><Link to="/contact">kontakt</Link></li>
+              <li><NavLink to="/" exact>Start</NavLink></li>
+              <li><NavLink to="/news">aktualności</NavLink></li>
+              <li><NavLink to="/contact">kontakt</NavLink></li>
             </ul>
           </nav>
         </header>

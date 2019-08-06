@@ -30,10 +30,14 @@ a{
 
 a:hover{
   color:orange;
-  border-bottom: 4px solid orange
+  /* border-bottom: 4px solid orange */
 }
 
 section{
   padding-top: 30px;
   text-align: center
+}
+
+.active{
+  border-bottom: 4px solid orange
 }
