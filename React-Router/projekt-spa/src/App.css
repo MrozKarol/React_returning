@@ -38,6 +38,14 @@ section{
   text-align: center
 }
 
-.active{
+.home_selected{
   border-bottom: 4px solid orange
+}
+
+.news_selected{
+  border-bottom: 4px solid green
+}
+
+.contact_selected{
+  border-bottom: 4px solid red
 }

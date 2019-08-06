@@ -15,9 +15,9 @@ function App() {
         <header>
           <nav>
             <ul>
-              <li><NavLink to="/" exact>Start</NavLink></li>
-              <li><NavLink to="/news">aktualności</NavLink></li>
-              <li><NavLink to="/contact">kontakt</NavLink></li>
+              <li><NavLink to="/" exact activeClassName="home_selected">Start</NavLink></li>
+              <li><NavLink to="/news" activeClassName="news_selected">aktualności</NavLink></li>
+              <li><NavLink to="/contact" activeClassName="contact_selected">kontakt</NavLink></li>
             </ul>
           </nav>
         </header>
