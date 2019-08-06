@@ -22,9 +22,9 @@ function App() {
           </nav>
         </header>
         <section>
-         <Route path="/" component={Home}/>
-         <Route path="/news" component={News}/>
-         <Route path="/contact" component={Contact}/>
+          <Route path="/" exact component={Home} />
+          <Route path="/news" component={News} />
+          <Route path="/contact" component={Contact} />
         </section>
       </div>
     </BrowserRouter>
