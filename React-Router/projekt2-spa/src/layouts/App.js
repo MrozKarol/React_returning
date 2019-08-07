@@ -1,13 +1,15 @@
-import React from 'react';
-
+import React,{Component} from 'react';
 import '../styles/App.css';
 
-function App() {
-  return (
-    <div className="App">
-     Działa
-    </div>
-  );
+class App extends Component {
+  state = {  }
+  render() { 
+    return ( 
+      <div className="App">
+      Działa
+     </div>
+     );
+  }
 }
-
+ 
 export default App;
