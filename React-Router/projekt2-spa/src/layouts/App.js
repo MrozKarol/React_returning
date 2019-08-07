@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <div className="app">
           <header>
             {<Header />}
           </header>
@@ -19,7 +19,7 @@ class App extends Component {
             <aside>
               {<Navigation />}
             </aside>
-            <section className="blog">
+            <section className="page">
               {<Page />}
             </section>
           </main>
