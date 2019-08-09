@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/Header.css';
 
 import img1 from '../images/header1.jpg'
 import img2 from '../images/header2.jpg'
