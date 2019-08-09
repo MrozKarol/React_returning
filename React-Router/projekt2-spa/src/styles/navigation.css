@@ -20,7 +20,22 @@ nav.main a:hover{
     transform: translateX(20px);
 }
 nav.main a.active{
-    color: wheat
+    border-left: 9px gray solid;
+    transform: translateX(0)
 }
 
+nav.main li:nth-child(1) a.active{
+    border-left-color: orange;
+}
 
+nav.main li:nth-child(2) a.active{
+    border-left-color: red;
+}
+
+nav.main li:nth-child(3) a.active{
+    border-left-color: rgb(0, 110, 255);
+}
+
+nav.main li:nth-child(4) a.active{
+    border-left-color: rgb(0, 160, 21);
+}
