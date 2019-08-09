@@ -4,12 +4,11 @@ div.app {
   min-height: 100vh;
   width: 90%;
   margin: 0 auto;
-  background-color: rgb(170, 165, 165);
+  
 }
 
 header {
   flex-basis: 30vh;
-  background-color: aquamarine;
 }
 
 main {
@@ -20,15 +19,16 @@ main {
 
 aside {
   min-width: 240px;
-  background-color: beige;
+ 
 }
 section.page {
-  background-color: antiquewhite;
+ 
   flex-grow: 1;
 }
 
 footer {
-  background-color: aqua;
+  background-color: black;
+  color: white;
   padding: 10px 0;
   text-align: center;
   text-transform: uppercase;

@@ -7,7 +7,7 @@ import img3 from '../images/header3.jpg'
 const Header = () => {
     return ( 
         <div>
-            <img src={img1} alt=""/>
+            <img src={img2} alt=""/>
         </div>
      );
 }
