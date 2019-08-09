@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import '../styles/ContactPage.css'
 
 class ContactPage extends Component {
     state = { 
