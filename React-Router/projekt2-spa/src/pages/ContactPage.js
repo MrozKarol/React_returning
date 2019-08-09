@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-const ContactPage = () => {
-    return (
-        <div>ContactPage</div>
-     );
+class ContactPage extends Component {
+    state = {  }
+    render() { 
+        return ( 
+            <div>Co</div>
+         );
+    }
 }
  
 export default ContactPage;
