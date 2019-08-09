@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import '../styles/ContactPage.css'
+import '../styles/ContactPage.css';
+import {Prompt} from 'react-router-dom'
 
 class ContactPage extends Component {
     state = { 
-        value: ''
+        value: '',
      }
 
      handleSubmit = (e) =>{
@@ -23,8 +24,12 @@ class ContactPage extends Component {
                 <form onSubmit={this.handleSubmit} >
                     <h3>Napisz do nas:</h3>
                     <textarea value={this.state.value} onChange={this.handleHange} placeholder='Wpisz wiadomość'></textarea>
-                    <button >wyślij</button>
-                </form>
+                    <button >{this.state.value.length > 0 ? 'Wyślij ;)' : 'Wyślij'}</button>
+                </form> 
+                <Prompt
+                    when={this.state.value}
+                    message="Masz niewypełniony formularz, czy napewno chcesz opuścić tą stronę"
+                    />
             </div>
          );
     }
