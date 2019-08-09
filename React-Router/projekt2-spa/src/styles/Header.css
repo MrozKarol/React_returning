@@ -1,4 +1,4 @@
-header img {
+div img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -6,3 +6,5 @@ header img {
   min-width: 100%;
   min-height: 100%;
 }
+
+
