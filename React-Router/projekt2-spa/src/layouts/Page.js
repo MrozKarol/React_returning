@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route } from 'react-router-dom'
+import HomePage from '../pages/HomePage'
 const Page = () => {
     return ( 
-        <div>Page</div>
+        <Route path="/" exact component ={HomePage}/>
      );
 }
  
