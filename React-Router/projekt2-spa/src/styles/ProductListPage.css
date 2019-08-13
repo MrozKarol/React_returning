@@ -1,0 +1,24 @@
+.products h2{
+    margin-bottom: 30px
+}
+
+.products ul{
+    list-style: circle;
+    padding-left: 30px;
+
+}
+
+.products li{
+    margin-bottom: 20px;
+}
+
+.products a {
+    text-decoration: none;
+    color: crimson;
+    transition: 0.5s
+}
+
+.products a:hover{
+    text-decoration: underline;
+    color: black;
+}
