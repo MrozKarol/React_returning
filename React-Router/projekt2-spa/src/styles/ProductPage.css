@@ -1,0 +1,9 @@
+.productPage h2{
+    margin-bottom: 20px
+}
+
+.products h1{
+    text-transform: uppercase;
+    margin:  0 0 10px 0;
+    color:red
+}

@@ -1,15 +1,17 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import Product from '../components/Product'
+import '../styles/ProductPage.css'
 
-const ProductsPage = () => {
+const ProductPage = ({match}) => {
+    console.log(match)
     return ( 
-        <div>
-            <div>Strona Produktu</div>
-            <Product/>
+        <div className="productPage">
+            <h2>Strona Produktu</h2>
+            <Product id={match.params.id}/>
             <Link to="/products">powrót do listy produktów</Link>
         </div>
      );
 }
  
-export default ProductsPage;
+export default ProductPage;
