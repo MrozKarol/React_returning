@@ -13,9 +13,29 @@ class App extends Component {
    }
 
   render() { 
+    const btn_off = {
+      border: '4px solid yellow',
+      padding: '10px 20px',
+      fontFamily: 'arial',
+      fontSize: 30,
+      dispaly: 'block',
+      margin: '20px auto',
+      backgroundColor: 'white'
+    }
+
+    const btn_on ={
+      border: '4px solid yellow',
+      padding: '10px 20px',
+      fontFamily: 'arial',
+      fontSize: 30,
+      dispaly: 'block',
+      margin: '20px auto',
+      backgroundColor: 'red',
+      color: 'white'
+    }
     return ( 
       <div>
-        <button onClick={this.handleClick}>{this.state.active ? 'Wyłacz' : 'Włacz'}</button>
+        <button style={this.state.active? btn_on : btn_off} onClick={this.handleClick}>{this.state.active ? 'Wyłacz' : 'Włacz'}</button>
       </div>
     );
   }
