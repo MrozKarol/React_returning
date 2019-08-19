@@ -8,7 +8,7 @@ const Footer = () => {
             <Route path="/" exact render={(props) => {
                 console.log(props);
                 return (
-                    <p>Jesteś na stronie głownej</p>
+                    <p>Jesteś na <span>stronie głownej</span></p>
                 )
             }} />
         </div>
