@@ -1,17 +1,18 @@
 import React from 'react';
-import {Route} from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import "../styles/Footer.css"
 const Footer = () => {
-    return ( 
+    return (
         <div>
             <h2>Stopka</h2>
-            <Route path="/" exact render={(props)=>{
+            <Route path="/" exact render={(props) => {
                 console.log(props);
-                return(
-                    <p>Dodadtowe informCJW</p>
+                return (
+                    <p>Jesteś na stronie głownej</p>
                 )
-            }}/>
+            }} />
         </div>
-     );
+    );
 }
- 
+
 export default Footer;
