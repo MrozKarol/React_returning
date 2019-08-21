@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar,Alert } from 'react-bootstrap';
 import styled from 'styled-components'
 
 
@@ -13,10 +13,7 @@ const Styles = styled.div`
         &:hover{
             color:white;
         }
-    }
-
-    
-    
+    }   
 `;
 
 const NavigationBar = () => {
@@ -27,9 +24,9 @@ const NavigationBar = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav"></Navbar.Toggle>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/about">About</Nav.Link>
-                        <Nav.Link href="/contact">Contact</Nav.Link>
+                        <Alert.Link href="/">Home</Alert.Link>
+                        <Alert.Link href="/about">About</Alert.Link>
+                        <Alert.Link href="/contact">Contact</Alert.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
