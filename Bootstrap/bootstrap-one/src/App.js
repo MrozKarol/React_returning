@@ -3,14 +3,17 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from '../src/pages/Home';
 import About from '../src/pages/About';
 import Contact from '../src/pages/Concat';
-import NoMatch from '../src/pages/NoMatch'
-import Layout from './components/Layout'
-import NavigationBar from '../src/components/NavigationBar'
+import NoMatch from '../src/pages/NoMatch';
+import Layout from './components/Layout';
+import NavigationBar from '../src/components/NavigationBar';
+import Jumbotron from './components/Jumbotron'
+
 
 function App() {
   return (
     <React.Fragment>
-      <NavigationBar/>
+      <NavigationBar />
+      <Jumbotron />
       <Layout>
         <Router>
           <Switch>
