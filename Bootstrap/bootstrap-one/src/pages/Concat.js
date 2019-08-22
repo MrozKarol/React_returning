@@ -1,12 +1,22 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import Alert from 'react-bootstrap/Alert';
+
 
 const Contact = () => {
-    return ( 
-        <div>
-            <h2>Contact Page</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis porro veniam aut aliquam hic provident ipsam, deleniti ullam tempora sunt. Maiores enim dolor necessitatibus sunt est voluptas quia, quaerat fuga?</p>
-        </div>
-     );
+    return (
+        <Container>
+            <Row>
+                <Col className="coll"sm={8}><Alert variant="success">8</Alert></Col>
+                <Col className="coll"sm={4}><Alert variant="success">8</Alert></Col>
+            </Row>
+            <Row>
+                <Col className="coll"sm>sm=true</Col>
+                <Col className="coll"sm>sm=true</Col>
+                <Col className="coll"sm>sm=true</Col>
+            </Row>
+        </Container>
+    );
 }
- 
+
 export default Contact;
