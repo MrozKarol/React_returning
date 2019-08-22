@@ -14,7 +14,7 @@ function App() {
             <ul>
               <li><i className="fa fa-road"></i> Gdańsk 80-200</li>
               <li><i className="fa fa-phone"></i>600-601-602</li>
-              <li><i className="fa fa-envelope"></i>test@gmail.com</li>
+              <li><i className="fa fa-envelope"></i>Justyna@gmail.com</li>
             </ul>
           </div>
           <div className="contact">
