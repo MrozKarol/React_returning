@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'font-awesome/css/font-awesome.min.css';
 
 function App() {
   return (
@@ -9,9 +10,9 @@ function App() {
         <div className="company-info">
         <h3>Web Desing</h3>
         <ul>
-          <li>Gdańsk 80-200</li>
-          <li>600-601-602</li>
-          <li>test@gmail.com</li>
+          <li><i className="fa fa-road"></i> Gdańsk 80-200</li>
+          <li><i className="fa fa-phone"></i>600-601-602</li>
+          <li><i className="fa fa-envelope"></i>test@gmail.com</li>
         </ul>
         </div>
         <div className="contact">
@@ -43,6 +44,7 @@ function App() {
           </form>
         </div>
       </div>
+      
      
     </div>
   );
