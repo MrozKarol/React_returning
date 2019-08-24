@@ -1,11 +1,19 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import 'font-awesome/css/font-awesome.min.css';
 import { Animated } from "react-animated-css";
 
-function App() {
-  return (
-    <div className="container">
+class App extends Component {
+  state = {  }
+
+
+handleSubmit = (e) =>{
+  e.preventDefault()
+}
+  
+  render() { 
+    return ( 
+      <div className="container">
       <h1 className="brand"><span>Web Desing</span></h1>
       <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true} animationInDuration={2000}>
         <div className="wrapper">
@@ -19,7 +27,7 @@ function App() {
           </div>
           <div className="contact">
             <h3>Email Us</h3>
-            <form action="">
+            <form onSubmit={this.handleSubmit} noValidate>
               <p>
                 <label htmlFor="">Name</label>
                 <input type="text" name="name" id="" />
@@ -47,9 +55,8 @@ function App() {
           </div>
         </div>
       </Animated>
-
     </div>
-  );
-}
-
+     );
+  }
+} 
 export default App;
