@@ -9,9 +9,20 @@ class App extends Component {
     company:'',
     email: '',
     phone: '',
-    message: ' ',
+    message: '',
    }
 
+handleChange =(e)=>{
+  const name = e.target.name;
+  const type = e.target.type;
+  if(type ==="text" || type ==="number" || type ==="email"){
+    const value = e.target.value
+    this.setState({
+      [name]:value
+    })
+  }
+
+}  
 
 handleSubmit = (e) =>{
   e.preventDefault()
@@ -36,23 +47,23 @@ handleSubmit = (e) =>{
             <form onSubmit={this.handleSubmit} noValidate>
               <p>
                 <label htmlFor="user">Name</label>
-                <input type="text" name="name" id="" />
+                <input type="text" name="username" id="user" value={this.state.username} onChange={this.handleChange} />
               </p>
               <p>
                 <label htmlFor="company">Company</label>
-                <input type="text" name="company" id="" />
+                <input type="text" name="company" id="company" value={this.state.company} onChange={this.handleChange} />
               </p>
               <p>
                 <label htmlFor="email">Email</label>
-                <input type="email" name="email" id="" />
+                <input type="email" name="email" id="email" value={this.state.email} onChange={this.handleChange} />
               </p>
               <p>
                 <label htmlFor="phone">Phone Number</label>
-                <input type="number" name="phone" id="" />
+                <input type="number" name="phone" id="phone" value={this.state.phone} onChange={this.handleChange} />
               </p>
               <p className="full">
                 <label htmlFor="message">Mesage</label>
-                <textarea type="text" name="mesage" rows="5" id=""></textarea>
+                <textarea  type="text" name="message" rows="5" id="message" value={this.state.message} onChange={this.handleChange}></textarea>
               </p>
               <p className="full">
                 <button>Submit</button>
