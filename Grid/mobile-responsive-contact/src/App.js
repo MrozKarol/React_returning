@@ -15,7 +15,7 @@ class App extends Component {
 handleChange =(e)=>{
   const name = e.target.name;
   const type = e.target.type;
-  if(type ==="text" || type ==="number" || type ==="email"){
+  if(type ==="text" || type ==="number" || type ==="email" || type==="textarea"){
     const value = e.target.value
     this.setState({
       [name]:value
@@ -62,8 +62,8 @@ handleSubmit = (e) =>{
                 <input type="number" name="phone" id="phone" value={this.state.phone} onChange={this.handleChange} />
               </p>
               <p className="full">
-                <label htmlFor="message">Mesage</label>
-                <textarea  type="text" name="message" rows="5" id="message" value={this.state.message} onChange={this.handleChange}></textarea>
+                <label htmlFor="message">Message</label>
+                <textarea type="textarea" name="message" rows={5}  id="message" value={this.state.message} onChange={this.handleChange}></textarea>
               </p>
               <p className="full">
                 <button>Submit</button>
