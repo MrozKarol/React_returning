@@ -4,7 +4,13 @@ import 'font-awesome/css/font-awesome.min.css';
 import { Animated } from "react-animated-css";
 
 class App extends Component {
-  state = {  }
+  state = { 
+    username: '',
+    company:'',
+    email: '',
+    phone: '',
+    message: ' ',
+   }
 
 
 handleSubmit = (e) =>{
@@ -15,7 +21,7 @@ handleSubmit = (e) =>{
     return ( 
       <div className="container">
       <h1 className="brand"><span>Web Desing</span></h1>
-      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true} animationInDuration={2000}>
+      <div animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true} animationInDuration={2000}>
         <div className="wrapper">
           <div className="company-info">
             <h3>Web Desing</h3>
@@ -29,23 +35,23 @@ handleSubmit = (e) =>{
             <h3>Email Us</h3>
             <form onSubmit={this.handleSubmit} noValidate>
               <p>
-                <label htmlFor="">Name</label>
+                <label htmlFor="user">Name</label>
                 <input type="text" name="name" id="" />
               </p>
               <p>
-                <label htmlFor="">Company</label>
+                <label htmlFor="company">Company</label>
                 <input type="text" name="company" id="" />
               </p>
               <p>
-                <label htmlFor="">Email</label>
+                <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="" />
               </p>
               <p>
-                <label htmlFor="">Phone Number</label>
+                <label htmlFor="phone">Phone Number</label>
                 <input type="number" name="phone" id="" />
               </p>
               <p className="full">
-                <label htmlFor="">Mesage</label>
+                <label htmlFor="message">Mesage</label>
                 <textarea type="text" name="mesage" rows="5" id=""></textarea>
               </p>
               <p className="full">
@@ -54,7 +60,7 @@ handleSubmit = (e) =>{
             </form>
           </div>
         </div>
-      </Animated>
+      </div>
     </div>
      );
   }
