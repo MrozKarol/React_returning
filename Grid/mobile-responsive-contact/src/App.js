@@ -10,7 +10,18 @@ class App extends Component {
     email: '',
     phone: '',
     message: '',
-   }
+
+    errors: {
+      username: false,
+      email: false,
+      pass: false,
+      accept: false,
+    }
+
+  }
+  messages = {
+    username_incorrect: 'Nazwa musi być dłuższa niż 2 znaki i nie może zawierać spacji',
+  }
 
 handleChange =(e)=>{
   const name = e.target.name;
@@ -25,7 +36,35 @@ handleChange =(e)=>{
 }  
 
 handleSubmit = (e) =>{
-  e.preventDefault()
+  e.preventDefault();
+  const validation = this.formValidation()
+  if(validation.correct){
+    this.setState({
+      username: '',
+
+      errors:{
+        username: false,
+      }
+    })
+  }else{
+    this.setState({
+      errors:{
+        username: ! validation.username
+      }
+    })
+  }
+}
+
+formValidation = ()=>{
+ let username = false;
+ let correct = false;
+ if (this.state.username.length >2 && this.state.username.indexOf(' ') === -1){
+   username = true
+ }
+ return({
+   correct,
+   username,
+ })
 }
   
   render() { 
@@ -48,6 +87,7 @@ handleSubmit = (e) =>{
               <p>
                 <label htmlFor="user">Name</label>
                 <input type="text" name="username" id="user" value={this.state.username} onChange={this.handleChange} />
+                {this.state.errors.username && <span>{this.messages.username_incorrect}</span>}
               </p>
               <p>
                 <label htmlFor="company">Company</label>
