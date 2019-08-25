@@ -21,6 +21,7 @@ class App extends Component {
   }
   messages = {
     username_incorrect: 'Nazwa musi być dłuższa niż 2 znaki i nie może zawierać spacji',
+    email_incorect: 'brak @ w emailu',
   }
 
 handleChange =(e)=>{
@@ -41,15 +42,18 @@ handleSubmit = (e) =>{
   if(validation.correct){
     this.setState({
       username: '',
+      email:'',
 
       errors:{
         username: false,
+        email:false,
       }
     })
   }else{
     this.setState({
       errors:{
-        username: ! validation.username
+        username: ! validation.username,
+        email: ! validation.email,
       }
     })
   }
@@ -87,15 +91,16 @@ formValidation = ()=>{
               <p>
                 <label htmlFor="user">Name</label>
                 <input type="text" name="username" id="user" value={this.state.username} onChange={this.handleChange} />
-                {this.state.errors.username && <span>{this.messages.username_incorrect}</span>}
+                {this.state.errors.username && <span className="warning">{this.messages.username_incorrect}</span>}
               </p>
               <p>
                 <label htmlFor="company">Company</label>
                 <input type="text" name="company" id="company" value={this.state.company} onChange={this.handleChange} />
-              </p>
+             </p>
               <p>
                 <label htmlFor="email">Email</label>
                 <input type="email" name="email" id="email" value={this.state.email} onChange={this.handleChange} />
+                {this.state.errors.email && <span className="warning">{this.messages.email_incorect}</span> }
               </p>
               <p>
                 <label htmlFor="phone">Phone Number</label>

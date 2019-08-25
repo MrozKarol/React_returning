@@ -91,6 +91,9 @@ ul{
   transition: background-color 2s ease-out;
 }
 
+.warning{
+  color: red
+}
 
 /*LARGW SCREENS*/
 
