@@ -24,15 +24,15 @@ class Home extends Component {
                 </Jumbotron>
                 <Row className="show-grid text-center">
                     <Col xs={12} sm={4} lg={4} className="person-wrapper">
-                        <Image src={Janusz} fluid roundedCircle className="profile-pic"/>
+                        <Image src={Janusz}  roundedCircle className="profile-pic"/>
                         <h1>Janusz</h1>
                     </Col>
                     <Col xs={12} sm={4} lg={4} className="person-wrapper">
-                        <Image src={Irenka} fluid roundedCircle className="profile-pic"/>
+                        <Image src={Irenka}  roundedCircle className="profile-pic"/>
                         <h1>Irenka</h1>
                     </Col>
                     <Col xs={12} sm={4} lg={4} className="person-wrapper">
-                        <Image src={Stefan} fluid roundedCircle className="profile-pic"/>
+                        <Image src={Stefan}  roundedCircle className="profile-pic"/>
                         <h1>Stefan</h1>
                     </Col>
                 </Row>
