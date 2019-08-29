@@ -1,0 +1,15 @@
+.header-image{
+    width: 100%;
+    height: 300px;
+  
+    margin-bottom: 2em;
+    background: url("../assets/coffie-heade.jpg");
+    background-position: center;
+    background-size: cover
+    
+}
+
+.about-person-pic{
+    float: left;
+    margin: 0 1em 1em 0
+}
