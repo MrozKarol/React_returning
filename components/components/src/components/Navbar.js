@@ -5,7 +5,7 @@ import './Navbar.css';
 class App extends Component {
     state = {
         showMenu: false,
-        className: "nav-links"
+        className: "nav-links",
     };
 
     toggleMenu = () => {
@@ -14,7 +14,7 @@ class App extends Component {
         })
         if (this.state.showMenu === true) {
             this.setState({
-                className: "nav-links open"
+                className: "nav-links open fade"
             })
         } else if (this.state.showMenu === false) {
             this.setState({
@@ -25,7 +25,7 @@ class App extends Component {
 
 
     render() {
-
+const fade = {opacity: 1}
         return (
             <div>
                 <nav>
@@ -35,9 +35,9 @@ class App extends Component {
                         <div className="line"></div>
                     </div>
                     <ul className={this.state.className}>
-                        <li><a href="#l">About</a></li>
-                        <li><a href="#k">Contact</a></li>
-                        <li><a href="#i">Projects</a></li>
+                        <li style={!this.state.showMenu ? fade : null} ><a href="#l">About</a></li>
+                        <li style={!this.state.showMenu ? fade : null}><a href="#k">Contact</a></li>
+                        <li style={!this.state.showMenu ? fade : null}><a href="#i">Projects</a></li>
                     </ul>
                 </nav>
             </div>
