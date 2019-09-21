@@ -10,7 +10,7 @@ class App extends Component {
   render() { 
     return ( 
       <div className="App">
-        <SliderOne/>
+        <div className="slider-one"><SliderOne/></div>
       </div>
      );
   }
