@@ -8,7 +8,7 @@ import image3 from '../image/gatsbyastronaut.png'
 
 const SliderOne = () => {
     return (
-        <AwesomeSlider cssModule={AwsSliderStyles} organicArrows="true">
+        <AwesomeSlider cssModule={AwsSliderStyles} bullets={false}>
             <div data-src={image1} ></div>
             <div data-src={image2} ></div>
             <div data-src={image3} ></div>
