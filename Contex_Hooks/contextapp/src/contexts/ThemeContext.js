@@ -8,7 +8,7 @@ class ThemeContextProvider extends Component {
         light: {
             syntax: '#555',
             ui: '#ddd',
-            bd: '#eee'
+            bd: '#989898'
         },
 
         dark: {
