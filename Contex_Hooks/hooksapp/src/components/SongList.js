@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import uuid from "uuid/v1";
 
 const SongList = () => {
   const [songs, setSongs] = useState([
@@ -6,9 +7,9 @@ const SongList = () => {
     { title: "nice song", id: 2 },
     { title: "bad song", id: 3 }
   ]);
-  const addSong = ()=>{
-    setSongs([...songs,{title: 'new song', id:4}])
-  }
+  const addSong = () => {
+    setSongs([...songs, { title: "new song", id: uuid() }]);
+  };
   return (
     <div className="spng-list">
       <ul>
