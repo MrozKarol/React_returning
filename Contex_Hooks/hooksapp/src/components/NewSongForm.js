@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 const NewSongForm = ({ addSong }) => {
+    //przekazanie title w propsie od addSong
     const [title, setTitle] = useState('');
     const handleSubmint = (e) => {
         e.preventDefault();
