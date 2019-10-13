@@ -8,17 +8,17 @@ const BookContextProvider = (props) => {
         { title: 'witcher wild hund', author: 'andrzej sabkowski', id: 1 },
         { title: 'game od thrones', author: 'gorge r.r. martin', id: 1 }
     ])
-    const addBook = (title,author) =>{
-        setBooks([...books,{title:title},{author:author}, {id:uuid()} ])
-    } 
-    const removeBook = (id) =>{
-        setBooks(books.filter(book => book.id !==id));
+    const addBook = (title, author) => {
+        setBooks([...books, { title: title }, { author: author }, { id: uuid() }])
     }
-    return ( 
-        <BookContext.Provider value={{books,addBook,removeBook}}>
+    const removeBook = (id) => {
+        setBooks(books.filter(book => book.id !== id));
+    }
+    return (
+        <BookContext.Provider value={{ books, addBook, removeBook }}>
             {props.children}
         </BookContext.Provider>
-     );
+    );
 }
 
 export default BookContextProvider;
