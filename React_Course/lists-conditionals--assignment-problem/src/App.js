@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
+import InputComponent from "./InputComponent/InputComponent"
 
 class App extends Component {
+  state = {
+    text: ""
+  };
+  nameChangedHandler = (event) =>{
+    this.setState({
+      text: event.target.value
+    })
+  }
   render() {
+
     return (
       <div className="App">
         <ol>
@@ -14,6 +24,7 @@ class App extends Component {
           <li>When you click a CharComponent, it should be removed from the entered text.</li>
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
+        <InputComponent change={this.nameChangedHandler} value={this.state.text}/>
       </div>
     );
   }
