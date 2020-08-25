@@ -1,17 +1,12 @@
-import React from "react";
+import React from 'react';
 const UserOuput = (props) => {
-  const colorRed = {
-    color: "red",
-  };
-  const colorGreen= {
-    color: "green",
-  };
-
-  return (
-    <div className="UserOutput">
-      <p style={props.name2.length <= 0 ? colorRed : colorGreen}>Some name:{props.name2}</p>
-    </div>
-  );
-};
-
+    const style = {
+        color: "red"
+    }
+    return ( <div className="UserOutput">
+        <p>Paased name: {props.name}</p>
+        <input style={style} onChange={props.changed} type="text" value={props.name}></input>
+    </div> );
+}
+ 
 export default UserOuput;

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import Person from "./Person/Peron";
-import UserInput from "./UserInput/UserInput";
-import UserOuput from "./UserOutput/UserOutput"
+import UserInput from "./UserInput/UserInput"
 
 class App extends Component {
   state = {
@@ -11,10 +10,6 @@ class App extends Component {
       { name: "Marek", age: 20 },
       { name: "Malina", age: 33 },
     ],
-    persons2:[
-      {name:"Karol"},
-      {name:"Ala"}
-    ]
   };
 
   switchNameHandler = (newName) => {
@@ -37,19 +32,10 @@ class App extends Component {
       ],
     });
   };
-
-  nameChangedInput = (event) => {
-    this.setState({
-      persons2: [
-        { name: event.target.value},
-   
-      ],
-    });
-  };
   render() {
     return (
       <div className="App">
-        {/* <h1>Hi</h1>
+        <h1>Hi</h1>
         <Person
           name={this.state.persons[0].name}
           age={this.state.persons[0].age}
@@ -67,11 +53,10 @@ class App extends Component {
         />
         <button onClick={this.switchNameHandler.bind(this, "Paulina")}>
           Swith Name
-        </button> */}
+        </button>
 
         <div className="exercse">
-          <UserInput changed2={this.nameChangedInput} value={this.state.persons2[0].name} />
-          <UserOuput name2={this.state.persons2[0].name}/>
+          <UserInput/>
         </div>
       </div>
     );

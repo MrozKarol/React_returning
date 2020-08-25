@@ -1,14 +1,36 @@
-import React from "react";
-const UserInput = (props) => {
-  const style = {
-    color: "gray",
+import React, { Component } from "react";
+import UserOutput from "../UserOutput/UserOutput"
+
+class UserInput extends Component {
+  state = {
+    persons: [
+        { name: "Karol", id: 1 },
+        { name: "Adrianna", id: 2 },
+      ],
   };
-  return (
-    <div className="UserName">
-      <h3>Component UserInputs</h3>
-      <input onChange={props.changed2} style={style} type="text" value={props.value}></input>
-    </div>
-  );
-};
+
+  nameChangedHandler = (event) =>{
+      console.log(UserOutput)
+    this.setState({
+        persons:[
+            {name: event.target.value},
+            {name: event.target.value},
+
+        ]
+        
+    })
+}
+  render() {
+   
+    return (
+      <div className="UserName">
+          <h3>Component UserInputs</h3>
+        <UserOutput age={this.state.persons[0].age} changed={this.nameChangedHandler} name={this.state.persons[0].name}/>
+    
+        <UserOutput age={this.state.persons[0].age} changed={this.nameChangedHandler} name={this.state.persons[1].name} />
+      </div>
+    );
+  }
+}
 
 export default UserInput;
