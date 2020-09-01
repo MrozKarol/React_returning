@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import InputComponent from "./InputComponent/InputComponent";
-import ValidationComponent from "./ValidationComponent/ValidationComponent"
+import ValidationComponent from "./ValidationComponent/ValidationComponent";
+import Char from "./CharComponent/Char"
 
 class App extends Component {
   state = {
@@ -13,6 +14,9 @@ class App extends Component {
     })
   }
   render() {
+    const charList = this.state.text.split("").map((char,index)=>{
+      return <Char chart={char} key={index}></Char>
+    })
 
     return (
       <div className="App">
@@ -27,6 +31,8 @@ class App extends Component {
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
         <InputComponent change={this.nameChangedHandler} value={this.state.text}/>
         <ValidationComponent textLength={this.state.text.length} />
+        {charList}
+
       </div>
     );
   }
