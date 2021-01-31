@@ -1,6 +1,7 @@
-const PositiveMessage = () => <p>Możesz obejrzeć film zapraszamy</p>;
+const ValidationMessage = (props) => <p>{props.txt}</p>;
 
-const NegativeMessage = () => <p>Nie mozesz obejrześć filmu</p>;
+// const PositiveMessage = () => <p>Możesz obejrzeć film zapraszamy</p>;
+// const NegativeMessage = () => <p>ożesz obejrzeć film zapraszamy/p>;
 
 class CheckboxAgeConfirmation extends React.Component {
   state = {
@@ -18,9 +19,11 @@ class CheckboxAgeConfirmation extends React.Component {
   dispalyMesage = () => {
     if (this.state.isFormSubmited) {
       if (this.state.isConfirmed) {
-        return <PositiveMessage />;
+        return <ValidationMessage txt="możesz obejrzeć film zapraszamy" />;
       } else if (!this.state.isConfirmed) {
-        return <NegativeMessage />;
+        return (
+          <ValidationMessage txt="nie możesz obejrzeć folmu nie masz 16 lat" />
+        );
       }
     }
   };
@@ -47,10 +50,10 @@ class CheckboxAgeConfirmation extends React.Component {
             checked={this.state.isConfirmed}
           />
           <label htmlFor="age">Mam co najmniej 16 lat</label>
-          {this.dispalyMesage()}
           <br />
           <button>Kup bilet</button>
         </form>
+        {this.dispalyMesage()}
       </>
     );
   }
