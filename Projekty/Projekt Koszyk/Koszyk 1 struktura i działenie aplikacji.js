@@ -4,26 +4,25 @@ class App extends React.Component {
     availableProducts: 6,
     shoppingCart: 0,
   };
-  handleRemoveFromCard = () =>
-    this.setState({ shoppingCart: this.state.shoppingCart - 1 });
+  handleRemoveFromCard = () =>this.setState(
+      { shoppingCart: this.state.shoppingCart - 1 }
+      );
   handleAddFromCard = () =>
-    this.setState({ shoppingCart: this.state.shoppingCart + 1 });
+  this.setState({ shoppingCart: this.state.shoppingCart + 1 }
+    );
+
+
   render() {
     return (
       <div>
         <button
           disabled={this.state.shoppingCart ? false : true}
           onClick={this.handleRemoveFromCard}
-        >
-          -
-        </button>
+        >-</button>
         <span> {this.state.shoppingCart} </span>
         <button
           disabled={
-            this.state.shoppingCart === this.state.availableProducts
-              ? true
-              : false
-          }
+            this.state.shoppingCart === this.state.availableProducts ? true:false}
           onClick={this.handleAddFromCard}
         >
           {" "}
