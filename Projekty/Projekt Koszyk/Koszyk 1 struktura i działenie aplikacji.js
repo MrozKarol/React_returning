@@ -17,36 +17,25 @@ class App extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <button
-          disabled={this.state.shoppingCart ? false : true}
-          onClick={this.handleRemoveFromCard}
-        >
-          -
-        </button>
-        <span> {this.state.shoppingCart} </span>
-        <button
-          disabled={
-            this.state.shoppingCart === this.state.availableProducts
-              ? true
-              : false
-          }
-          onClick={this.handleAddFromCard}
-        >
-          {" "}
-          +
-        </button>
-        {this.state.shoppingCart > 0 ? (
-          <button
-            disabled={this.state.shoppingCart ? false : true}
-            onClick={this.handleBuy}
-          >
-            Kup
-          </button>
-        ) : null}
-      </div>
-    );
-  }
+    return (<
+            div >
+      <
+            button disabled={this.state.shoppingCart ? false : true}
+        onClick={this.handleRemoveFromCard} > - < /button>{" "} <
+            span style={
+            this.state.shoppingCart === 0 ? { opacity: 0.3 } : { opacity: 1 }
+          } > {" "} {this.state.shoppingCart} {" "} < /span>{" "} <
+            button disabled={
+              this.state.shoppingCart === this.state.availableProducts ?
+                true : false
+            }
+            onClick={this.handleAddFromCard} > {" "} + < /button>{" "}  {
+              this.state.shoppingCart > 0 ? (< button disabled={this.state.shoppingCart ? false : true}
+                onClick={this.handleBuy} > Kup { " "} < /button>
+                ) : null
+            } { " "} <
+            /div>
+        );
+    }
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render( < App /> , document.getElementById("root"));
