@@ -7,7 +7,8 @@ class App extends Component {
       firstName: '',
       lastName : '',
       department : '',
-      salary : null,
+      salary : '',
+      currency: '',
     users: [
       {
         id: 1,
@@ -22,7 +23,7 @@ class App extends Component {
         firstName: "Jane",
         lastName: "Doe",
         department: "IT",
-        salary: 3000.5,
+        salary: 3000.5 ,
         currency: "usd"
       },
       {
@@ -57,8 +58,8 @@ class App extends Component {
 
 
   handleChange = (e)=> {
-    console.log(e.target.type)
-    console.log(e.target.name)
+    // console.log(e.target.type)
+    // console.log(e.target.name)
     const name = e.target.name
     const value = e.target.value
     this.setState({
@@ -75,12 +76,17 @@ class App extends Component {
     const lastName = this.state.lastName
     const department = this.state.department
     const salary = this.state.salary
+    const currency = this.state.currency
     const id = users.length+1
     console.log(id)
-    users.push({id:id,firstName: name, lastName: lastName,department:department,salary:salary})
-   this.setState({
-     users}
-   )
+    users.push({id:id,firstName: name, lastName: lastName,department:department,salary:salary, currency:currency})
+    this.setState({
+      users}
+    )
+    this.setState({
+      id:id,firstName: '', lastName: '',department:'',salary:'', currency:''}
+    )
+   
 
   }
   render() {
@@ -98,7 +104,13 @@ class App extends Component {
             <input type="text" id='department'  name="department" value={this.state.department} onChange={this.handleChange} />
           </label>
           <label htmlFor="user">Salary:
-            <input type="number" id='salary'  name="salary" value={this.state.salary} onChange={this.handleChange} />
+            <input type="number" step="0.01" min="0" id='salary'  name="salary" value={this.state.salary} onChange={this.handleChange} />
+          </label>
+          <label>
+            <select id="currency" name="currency" value={this.state.currency} onChange={this.handleChange}>
+              <option value='USD'>USD</option>
+              <option value='EUR'>EUR</option>
+            </select>
           </label>
           
           <button >Dodaj</button>
