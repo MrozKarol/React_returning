@@ -7,7 +7,7 @@ const UserLList = (props) => {
   const usersSalary = users.map(sumanar => sumanar.salary).map(Number)
   let itemSum =0
   usersSalary.forEach(item => itemSum +=item)
-  console.log(usersSalary, itemSum)
+  // console.log(usersSalary, itemSum)
   return (
     <div>
       <table>

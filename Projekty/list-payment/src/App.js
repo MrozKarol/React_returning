@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import UserList from './UserList';
 
+
 class App extends Component {
   state = {
       firstName: '',
       lastName : '',
       department : '',
-      salary : '',
-      currency: '',
+      salary : 0,
+      currency: 'usd',
+      searchFirstName: '',
     users: [
       {
         id: 1,
@@ -51,7 +53,11 @@ class App extends Component {
         currency: "usd"
       },
 
+    ],
+    usersSearch: [
+
     ]
+
 
 
   }
@@ -84,11 +90,32 @@ class App extends Component {
       users}
     )
     this.setState({
-      id:id,firstName: '', lastName: '',department:'',salary:'', currency:''}
+      id:id,firstName: name, lastName: lastName,department:department,salary: 0, currency:'usd'}
     )
-   
+    this.setState({
+      usersSearch : users
+    })
 
   }
+
+  handleSubmitSearch = (e) =>{
+    e.preventDefault()
+    const searchFirstName = this.state.searchFirstName
+    const usersSearch = [...this.state.usersSearch]
+    let users = [...this.state.users]
+    console.log(searchFirstName)
+        users = users.filter((user)=>user.firstName === `${searchFirstName}`)
+        console.log(users[0].id)
+        usersSearch.concat(users)
+        console.log(usersSearch) 
+        this.setState({
+          usersSearch : users
+        })
+
+       console.log(usersSearch) 
+         
+          
+   }
   render() {
     return (
       <div className="App">
@@ -112,9 +139,20 @@ class App extends Component {
               <option value='EUR'>EUR</option>
             </select>
           </label>
-          
           <button >Dodaj</button>
         </form>
+        <div>
+        <form  onSubmit={this.handleSubmitSearch}>
+            <label htmlFor="user">Name:
+              <input type="text" id='searchFirstName' name="searchFirstName" value={this.state.searchFirstName} onChange={this.handleChange}  />
+            </label>
+            <button >Szukaj</button>
+          </form>
+          <UserList users={this.state.usersSearch}></UserList>
+     
+        </div> 
+      
+
       </div>
     );
   }
