@@ -3,14 +3,17 @@ import './App.css';
 import UserList from './UserList';
 
 
+
 class App extends Component {
   state = {
+      select : 'name',
       firstName: '',
       lastName : '',
       department : '',
       salary : 0,
       currency: 'usd',
       searchFirstName: '',
+      searchLastName: '',
     users: [
       {
         id: 1,
@@ -72,7 +75,7 @@ class App extends Component {
       [name] : value,
       
     })
-    console.log(this.state)
+    
   }
 
   handleSubmit = (e) =>{
@@ -83,7 +86,7 @@ class App extends Component {
     const department = this.state.department
     const salary = this.state.salary
     const currency = this.state.currency
-    const id = users.length+1
+    let id = users.length+1
     console.log(id)
     users.push({id:id,firstName: name, lastName: lastName,department:department,salary:salary, currency:currency})
     this.setState({
@@ -92,34 +95,55 @@ class App extends Component {
     this.setState({
       id:id,firstName: name, lastName: lastName,department:department,salary: 0, currency:'usd'}
     )
-    this.setState({
-      usersSearch : users
-    })
+    // this.setState({
+    //   usersSearch : users
+    // })
 
   }
 
   handleSubmitSearch = (e) =>{
     e.preventDefault()
     const searchFirstName = this.state.searchFirstName
+    const searchLastName = this.state.searchLastName
     const usersSearch = [...this.state.usersSearch]
-    let users = [...this.state.users]
-    console.log(searchFirstName)
-        users = users.filter((user)=>user.firstName === `${searchFirstName}`)
-        console.log(users[0].id)
-        usersSearch.concat(users)
-        console.log(usersSearch) 
+    const users = [...this.state.users]
+      if(searchLastName||searchFirstName){
+        const nUsers =  users.filter((user)=>user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
+  
+        const lUsers =  users.filter((user)=>user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase())
+        // console.log(nUsers)
+        // console.log(lUsers)
+        const allUsersSearch = nUsers.concat(lUsers)
+        
+        function filterDuplicate(myArr, prop) {
+       
+          var res = {};
+          var resArr = [];
+          for (var elem of myArr) {
+            res[elem.id] = elem;
+          }
+          for (let [index, elem] of Object.entries(res)) {
+            resArr.push(elem);
+          }
+          return resArr;
+      }
+      
+    let finalRes = filterDuplicate(allUsersSearch,"id");
+    console.log("finalResults : ",finalRes);
+      
         this.setState({
-          usersSearch : users
-        })
+          usersSearch : finalRes
+        })      
+      }    
+   }
 
-       console.log(usersSearch) 
-         
-          
+   handleUsersFilter = (e) =>{
+    
    }
   render() {
     return (
       <div className="App">
-      <UserList users={this.state.users}></UserList>
+      
       <form onSubmit={this.handleSubmit}>
           <label htmlFor="user">Name:
             <input type="text" id='firstName' name="firstName" value={this.state.firstName} onChange={this.handleChange} />
@@ -140,15 +164,20 @@ class App extends Component {
             </select>
           </label>
           <button >Dodaj</button>
+          <UserList users={this.state.users}></UserList>
         </form>
         <div>
         <form  onSubmit={this.handleSubmitSearch}>
             <label htmlFor="user">Name:
-              <input type="text" id='searchFirstName' name="searchFirstName" value={this.state.searchFirstName} onChange={this.handleChange}  />
+              <input type="text" id='searchFirstName' name="searchFirstName" value={this.state.searchFirstName} onChange={this.handleChange} onClick={this.handleUsersFilter}  />
+            </label>
+            <label htmlFor="user">Last Name:
+              <input type="text" id='searchLastName' name="searchLastName" value={this.state.searchLastName} onChange={this.handleChange}   />
             </label>
             <button >Szukaj</button>
+            <UserList users={this.state.usersSearch}></UserList>
           </form>
-          <UserList users={this.state.usersSearch}></UserList>
+          
      
         </div> 
       

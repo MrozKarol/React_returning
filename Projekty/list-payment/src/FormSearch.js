@@ -14,9 +14,20 @@ const FormSearch = (props) => {
        
     }
 
+const showSearUsers = () => {
+  <div>Jan</div>
+}
 
-
-    
+    return (  
+    <div>
+        <form  onSubmit={handleSubmit}>
+            <label htmlFor="user">Name:
+              <input type="text" id='searchFirstName' name="searchFirstName" value={props.searchFirstName} onChange={props.onChange}  />
+            </label>
+            <button >Szukaj</button>
+          </form>
+        {this.showSearUsers}
+        </div> );
 }
  
 export default FormSearch;

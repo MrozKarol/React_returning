@@ -2,11 +2,12 @@ import React from 'react';
 
 
 const UserLList = (props) => {
-  
   const users = props.users
+  console.log(users)
   const usersSalary = users.map(sumanar => sumanar.salary).map(Number)
   let itemSum =0
   usersSalary.forEach(item => itemSum +=item)
+  let counter = users.length / users.length
   // console.log(usersSalary, itemSum)
   return (
     <div>
@@ -14,7 +15,7 @@ const UserLList = (props) => {
         <tbody>
           {users.map(user =>
             <tr key={user.id}>
-              <td>{user.id}</td>
+              <td>{counter++}</td>
               <td>{user.firstName}</td>
               <td>{user.lastName}</td>
               <td>{user.department}</td>
@@ -27,7 +28,7 @@ const UserLList = (props) => {
             <td>Summary</td>
             <td>{itemSum}</td>
             </tr>
-            </tfoot>
+        </tfoot>
       </table>
     </div>
   );
