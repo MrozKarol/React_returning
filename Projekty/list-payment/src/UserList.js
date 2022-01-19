@@ -3,7 +3,7 @@ import React from 'react';
 
 const UserLList = (props) => {
   const users = props.users
-  console.log(users)
+  // console.log(users)
   const usersSalary = users.map(sumanar => sumanar.salary).map(Number)
   let itemSum =0
   usersSalary.forEach(item => itemSum +=item)
@@ -22,13 +22,14 @@ const UserLList = (props) => {
               <td>{user.salary} {user.currency}</td>
             </tr>)}
         </tbody>
-        <tfoot>
+        {itemSum ?  <tfoot>
           <tr>
             <td colspan="3"></td>
             <td>Summary</td>
-            <td>{itemSum}</td>
+            <td>{itemSum ? itemSum : null}</td>
             </tr>
-        </tfoot>
+        </tfoot> : null}
+       
       </table>
     </div>
   );

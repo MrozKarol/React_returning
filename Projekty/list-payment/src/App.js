@@ -109,16 +109,16 @@ class App extends Component {
     const searchLastName = this.state.searchLastName
     const usersSearch = [...this.state.usersSearch]
     const users = [...this.state.users]
+    function getUnique(arr, comp) {
+
+      return arr
+        .map(e => e[comp])
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter(e => arr[e]).map(e => arr[e]);
+    }
     if (searchFirstName) {
       const nUsers = users.filter((user) => user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
    
-      function getUnique(arr, comp) {
-
-        return arr
-          .map(e => e[comp])
-          .map((e, i, final) => final.indexOf(e) === i && i)
-          .filter(e => arr[e]).map(e => arr[e]);
-      }
 
       let finalRes = getUnique(nUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -130,13 +130,6 @@ class App extends Component {
     if (searchLastName) {
       const lUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase())
    
-      function getUnique(arr, comp) {
-
-        return arr
-          .map(e => e[comp])
-          .map((e, i, final) => final.indexOf(e) === i && i)
-          .filter(e => arr[e]).map(e => arr[e]);
-      }
 
       let finalRes = getUnique(lUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -147,13 +140,7 @@ class App extends Component {
     }
     if (searchLastName && searchFirstName) {
       const allUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase() && user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
-      function getUnique(arr, comp) {
-
-        return arr
-          .map(e => e[comp])
-          .map((e, i, final) => final.indexOf(e) === i && i)
-          .filter(e => arr[e]).map(e => arr[e]);
-      }
+      
 
       let finalRes = getUnique(allUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -204,7 +191,14 @@ class App extends Component {
             <label htmlFor="user">Last Name:
               <input type="text" id='searchLastName' name="searchLastName" value={this.state.searchLastName} onChange={this.handleChange} />
             </label>
-            <button >Szukaj</button>
+            <label>
+            <select name="test" multiple>
+    <option>123</option>
+    <option>456</option>
+    <option>789</option>
+</select>
+            </label>
+            <button type='submit' >Szukaj</button>
             <UserList users={this.state.usersSearch}></UserList>
           </form>
 
