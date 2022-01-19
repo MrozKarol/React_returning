@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import UserList from './UserList';
+import Multiselect from 'multiselect-react-dropdown';
 
 
 
@@ -59,9 +60,30 @@ class App extends Component {
     ],
     usersSearch: [
 
-    ]
+    ],
+    options: [],
+    selectedValue: []
 
 
+
+  }
+
+  componentDidMount() {
+   const users = this.state.users
+    const department = users.map(user => ({id:user.id,name:user.department}))
+    function getUnique(arr, comp) {
+
+      return arr
+        .map(e => e[comp])
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter(e => arr[e]).map(e => arr[e]);
+    }
+    let finalDepartament = getUnique(department, 'name');
+    
+    console.log('final',finalDepartament)
+    this.setState({
+      options : finalDepartament
+    })
 
   }
 
@@ -81,27 +103,35 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const users = [...this.state.users]
-    const name = this.state.firstName
+    let departments = users.map(user => ({id:user.id,name:user.department}));
+    const name = this.state.firstName;
     const lastName = this.state.lastName
     const department = this.state.department
     const salary = this.state.salary
     const currency = this.state.currency
     let id = users.length + 1
-    console.log(id)
+
     users.push({ id: id, firstName: name, lastName: lastName, department: department, salary: salary, currency: currency })
     this.setState({
-      users
+      users,
+      id: '', firstName: '', lastName: '', department: '', salary: 0, currency: 'usd'
     }
     )
+    function getUnique(arr, comp) {
+      return arr
+        .map(e => e[comp])
+        .map((e, i, final) => final.indexOf(e) === i && i)
+        .filter(e => arr[e]).map(e => arr[e]);
+    }
+    const finalDepartament = getUnique(departments, 'name');
     this.setState({
-      id: id, firstName: name, lastName: lastName, department: department, salary: 0, currency: 'usd'
-    }
-    )
-    // this.setState({
-    //   usersSearch : users
-    // })
+      options : finalDepartament
+    })
 
   }
+
+
+  
 
   handleSubmitSearch = (e) => {
     e.preventDefault()
@@ -118,7 +148,7 @@ class App extends Component {
     }
     if (searchFirstName) {
       const nUsers = users.filter((user) => user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
-   
+
 
       let finalRes = getUnique(nUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -129,7 +159,7 @@ class App extends Component {
     }
     if (searchLastName) {
       const lUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase())
-   
+
 
       let finalRes = getUnique(lUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -140,7 +170,7 @@ class App extends Component {
     }
     if (searchLastName && searchFirstName) {
       const allUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase() && user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
-      
+
 
       let finalRes = getUnique(allUsers, 'id');
       console.log("finalResults : ", finalRes);
@@ -149,18 +179,22 @@ class App extends Component {
         usersSearch: finalRes
       })
     }
-    
-    
-  }
-  
 
-  handleUsersFilter = (e) => {
 
   }
+
+
+
+  onSelect(selectedList, selectedItem,e) {
+
+    
+}
+
   render() {
+ 
+   
     return (
       <div className="App">
-
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="user">Name:
             <input type="text" id='firstName' name="firstName" value={this.state.firstName} onChange={this.handleChange} />
@@ -191,13 +225,14 @@ class App extends Component {
             <label htmlFor="user">Last Name:
               <input type="text" id='searchLastName' name="searchLastName" value={this.state.searchLastName} onChange={this.handleChange} />
             </label>
-            <label>
-            <select name="test" multiple>
-    <option>123</option>
-    <option>456</option>
-    <option>789</option>
-</select>
-            </label>
+            <Multiselect style={{ width: '20px' }}
+              options={this.state.options} // Options to display in the dropdown
+              selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+              onSelect={this.onSelect}// Function will trigger on select event
+              onRemove={this.onRemove} // Function will trigger on remove event
+              displayValue="name" // Property name to display in the dropdown option
+            />
+
             <button type='submit' >Szukaj</button>
             <UserList users={this.state.usersSearch}></UserList>
           </form>
