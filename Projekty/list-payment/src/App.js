@@ -61,8 +61,10 @@ class App extends Component {
     usersSearch: [
 
     ],
-    options: [],
-    selectedValue: []
+    selectedValues:[],
+    selectDep:[
+      
+    ]
 
 
 
@@ -79,8 +81,6 @@ class App extends Component {
         .filter(e => arr[e]).map(e => arr[e]);
     }
     let finalDepartament = getUnique(department, 'name');
-    
-    console.log('final',finalDepartament)
     this.setState({
       options : finalDepartament
     })
@@ -110,7 +110,6 @@ class App extends Component {
     const salary = this.state.salary
     const currency = this.state.currency
     let id = users.length + 1
-
     users.push({ id: id, firstName: name, lastName: lastName, department: department, salary: salary, currency: currency })
     this.setState({
       users,
@@ -130,8 +129,17 @@ class App extends Component {
 
   }
 
+  onSelect= (selectedList,selectedItem) =>{
+    let selectedItems = selectedList  
 
-  
+  console.log(selectedItems)
+    const getOption = (Array.isArray(selectedItems)?selectedItems.map(x =>x.name):[])
+
+    console.log(getOption)
+    this.setState({
+      selectedValues : getOption
+    })
+}
 
   handleSubmitSearch = (e) => {
     e.preventDefault()
@@ -139,8 +147,10 @@ class App extends Component {
     const searchLastName = this.state.searchLastName
     const usersSearch = [...this.state.usersSearch]
     const users = [...this.state.users]
-    function getUnique(arr, comp) {
+    const selecdedDepartaments  = [...this.state.selectedValues]
+    // console.log(selecdedDepartaments, "dddd")
 
+    function getUnique(arr, comp) {
       return arr
         .map(e => e[comp])
         .map((e, i, final) => final.indexOf(e) === i && i)
@@ -148,33 +158,34 @@ class App extends Component {
     }
     if (searchFirstName) {
       const nUsers = users.filter((user) => user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
-
-
       let finalRes = getUnique(nUsers, 'id');
-      console.log("finalResults : ", finalRes);
-
       this.setState({
         usersSearch: finalRes
       })
     }
     if (searchLastName) {
       const lUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase())
-
-
       let finalRes = getUnique(lUsers, 'id');
-      console.log("finalResults : ", finalRes);
-
+      // console.log("finalResults : ", finalRes);
       this.setState({
         usersSearch: finalRes
       })
     }
     if (searchLastName && searchFirstName) {
       const allUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase() && user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
-
-
       let finalRes = getUnique(allUsers, 'id');
-      console.log("finalResults : ", finalRes);
+      // console.log("finalResults : ", finalRes);
+      this.setState({
+        usersSearch: finalRes
+      })
+    }
+    if(selecdedDepartaments.length>0){
+      let tempItem  = selecdedDepartaments
+      const allUsers = users.filter((user) => tempItem?.includes(user.department))
 
+      console.log(allUsers)
+      
+      let finalRes = getUnique(allUsers, 'id');
       this.setState({
         usersSearch: finalRes
       })
@@ -185,10 +196,7 @@ class App extends Component {
 
 
 
-  onSelect(selectedList, selectedItem,e) {
 
-    
-}
 
   render() {
  
@@ -226,13 +234,13 @@ class App extends Component {
               <input type="text" id='searchLastName' name="searchLastName" value={this.state.searchLastName} onChange={this.handleChange} />
             </label>
             <Multiselect style={{ width: '20px' }}
+             isMulti
               options={this.state.options} // Options to display in the dropdown
               selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
               onSelect={this.onSelect}// Function will trigger on select event
               onRemove={this.onRemove} // Function will trigger on remove event
               displayValue="name" // Property name to display in the dropdown option
             />
-
             <button type='submit' >Szukaj</button>
             <UserList users={this.state.usersSearch}></UserList>
           </form>
