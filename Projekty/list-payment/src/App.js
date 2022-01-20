@@ -61,18 +61,16 @@ class App extends Component {
     usersSearch: [
 
     ],
-    selectedValues:[],
-    selectDep:[
-      
-    ]
+    selectedValues: [],
+    selectDep: [
 
-
+    ],
 
   }
 
   componentDidMount() {
-   const users = this.state.users
-    const department = users.map(user => ({id:user.id,name:user.department}))
+    const users = this.state.users
+    const department = users.map(user => ({ id: user.id, name: user.department }))
     function getUnique(arr, comp) {
 
       return arr
@@ -82,7 +80,7 @@ class App extends Component {
     }
     let finalDepartament = getUnique(department, 'name');
     this.setState({
-      options : finalDepartament
+      options: finalDepartament
     })
 
   }
@@ -103,7 +101,7 @@ class App extends Component {
   handleSubmit = (e) => {
     e.preventDefault()
     const users = [...this.state.users]
-    let departments = users.map(user => ({id:user.id,name:user.department}));
+    let departments = users.map(user => ({ id: user.id, name: user.department }));
     const name = this.state.firstName;
     const lastName = this.state.lastName
     const department = this.state.department
@@ -124,22 +122,35 @@ class App extends Component {
     }
     const finalDepartament = getUnique(departments, 'name');
     this.setState({
-      options : finalDepartament
+      options: finalDepartament
     })
 
   }
 
-  onSelect= (selectedList,selectedItem) =>{
-    let selectedItems = selectedList  
+  onSelect = (selectedList, selectedItem) => {
+    let selectedItems = selectedList
 
-  console.log(selectedItems)
-    const getOption = (Array.isArray(selectedItems)?selectedItems.map(x =>x.name):[])
+    // console.log(selectedItems)
+    const getOption = (Array.isArray(selectedItems) ? selectedItems.map(x => x.name) : [])
 
     console.log(getOption)
     this.setState({
-      selectedValues : getOption
+      selectedValues: getOption,
+      
     })
-}
+  }
+
+  // onRemove(selectedList, removedItem) {
+  //   let selectedItems = selectedList 
+  //   const getOption = (Array.isArray(selectedItems)?selectedItems.map(x =>x.name):[])
+
+  //     console.log(getOption)
+  //     this.setState({
+  //       selectedValues : getOption
+  //     })
+  // }
+
+
 
   handleSubmitSearch = (e) => {
     e.preventDefault()
@@ -147,7 +158,7 @@ class App extends Component {
     const searchLastName = this.state.searchLastName
     const usersSearch = [...this.state.usersSearch]
     const users = [...this.state.users]
-    const selecdedDepartaments  = [...this.state.selectedValues]
+    const selecdedDepartaments = [...this.state.selectedValues]
     // console.log(selecdedDepartaments, "dddd")
 
     function getUnique(arr, comp) {
@@ -160,7 +171,8 @@ class App extends Component {
       const nUsers = users.filter((user) => user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
       let finalRes = getUnique(nUsers, 'id');
       this.setState({
-        usersSearch: finalRes
+        usersSearch: finalRes,
+        searchFirstName: ''
       })
     }
     if (searchLastName) {
@@ -168,42 +180,56 @@ class App extends Component {
       let finalRes = getUnique(lUsers, 'id');
       // console.log("finalResults : ", finalRes);
       this.setState({
-        usersSearch: finalRes
+        usersSearch: finalRes,
+        searchLastName: ''
       })
     }
-    if (searchLastName && searchFirstName) {
+    if (searchLastName && searchFirstName ){
       const allUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase() && user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase())
+      console.log(allUsers)
       let finalRes = getUnique(allUsers, 'id');
       // console.log("finalResults : ", finalRes);
       this.setState({
-        usersSearch: finalRes
+        usersSearch: finalRes,
+        searchLastName: '',
+        searchFirstName: ''
       })
     }
-    if(selecdedDepartaments.length>0){
-      let tempItem  = selecdedDepartaments
-      const allUsers = users.filter((user) => tempItem?.includes(user.department))
+    if ((searchLastName && searchFirstName) && selecdedDepartaments.length > 0) {
+      let tempItem = selecdedDepartaments
 
+      const allUsers = users.filter((user) => user.lastName.toLowerCase() === `${searchLastName}`.toLowerCase() && user.firstName.toLowerCase() === `${searchFirstName}`.toLowerCase() && tempItem?.includes(user.department))
       console.log(allUsers)
-      
       let finalRes = getUnique(allUsers, 'id');
+      // console.log("finalResults : ", finalRes);
       this.setState({
-        usersSearch: finalRes
+        usersSearch: finalRes,
+        searchLastName: '',
+        searchFirstName: ''
       })
     }
+    if ((!searchLastName && !searchFirstName) &&selecdedDepartaments.length > 0) {
+      let tempItem = selecdedDepartaments
 
+      const allUsers = users.filter((user) => tempItem?.includes(user.department))
+      console.log(allUsers)
+      let finalRes = getUnique(allUsers, 'id');
+      // console.log("finalResults : ", finalRes);
+      this.setState({
+        usersSearch: finalRes,
+        searchLastName: '',
+        searchFirstName: ''
+      })
+    }
 
   }
 
-
-
-
-
   render() {
- 
-   
+
+
     return (
       <div className="App">
-        <form onSubmit={this.handleSubmit}>
+        <form className='form' onSubmit={this.handleSubmit}>
           <label htmlFor="user">Name:
             <input type="text" id='firstName' name="firstName" value={this.state.firstName} onChange={this.handleChange} />
           </label>
@@ -226,21 +252,28 @@ class App extends Component {
           <UserList users={this.state.users}></UserList>
         </form>
         <div>
-          <form onSubmit={this.handleSubmitSearch}>
+          <form className='form' onSubmit={this.handleSubmitSearch}>
             <label htmlFor="user">Name:
               <input type="text" id='searchFirstName' name="searchFirstName" value={this.state.searchFirstName} onChange={this.handleChange} onClick={this.handleUsersFilter} />
             </label>
             <label htmlFor="user">Last Name:
               <input type="text" id='searchLastName' name="searchLastName" value={this.state.searchLastName} onChange={this.handleChange} />
             </label>
-            <Multiselect style={{ width: '20px' }}
-             isMulti
-              options={this.state.options} // Options to display in the dropdown
-              selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
-              onSelect={this.onSelect}// Function will trigger on select event
-              onRemove={this.onRemove} // Function will trigger on remove event
-              displayValue="name" // Property name to display in the dropdown option
-            />
+            <label>Departamen:
+              <Multiselect style={{
+                multiselectContainer: { width: "200px", margin: "0 auto" }
+              }
+              }
+                isMulti
+                options={this.state.options} // Options to display in the dropdown
+                selectedValues={this.state.selectedValue} // Preselected value to persist in dropdown
+                onSelect={this.onSelect}// Function will trigger on select event
+                onRemove={this.onRemove} // Function will trigger on remove event
+                displayValue="name" // Property name to display in the dropdown option
+                onRemove={this.onRemove}
+             
+              />
+            </label>
             <button type='submit' >Szukaj</button>
             <UserList users={this.state.usersSearch}></UserList>
           </form>
