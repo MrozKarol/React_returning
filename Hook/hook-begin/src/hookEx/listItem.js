@@ -8,8 +8,6 @@ const ListItem = () => {
         item2: 'orange',
         item3: 'banana',
       })
-
-
    
 
     return ( 
