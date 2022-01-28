@@ -1,13 +1,14 @@
-
-import './App.css';
-import ListItem from './hookEx/listItem';
-import AddSing from './hookEx/addSing';
+import "./App.css";
+import ListItem from "./hookEx/listItem";
+import AddSing from "./hookEx/addSing";
+import DisplayText from "./hookEx/displayText";
 
 function App() {
   return (
     <div className="App">
-     <ListItem/>
-     <AddSing/>
+      <ListItem />
+      <AddSing />
+      <DisplayText />
     </div>
   );
 }
