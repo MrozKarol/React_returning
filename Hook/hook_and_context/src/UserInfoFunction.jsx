@@ -9,7 +9,7 @@ const UserInfoFunc  = () =>{
 
         return (
                <div>           
-                    <p>User is {userLoggedInfo} function component</p>
+                    <p>User is {userLoggedInfo} function component </p>
                </div>
         );
     
